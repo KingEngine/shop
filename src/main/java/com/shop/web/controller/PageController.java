@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class PageController {
-	@RequestMapping(value = "/getTop.do", method = { RequestMethod.GET,RequestMethod.POST })
+	@RequestMapping(value = "getTop.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getTop() {
 		return "top";
 	}
-	@RequestMapping(value = "/getCenter.do", method = { RequestMethod.GET,RequestMethod.POST })
+	@RequestMapping(value = "getCenter.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getCenter() {
 		return "center";
 	}
-	@RequestMapping(value = "/getFoot.do", method = { RequestMethod.GET,RequestMethod.POST })
+	@RequestMapping(value = "getFoot.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getFoot() {
 		return "foot";
 	}

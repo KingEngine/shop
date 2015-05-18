@@ -1,0 +1,10 @@
+
+#top {
+    background-image: url("../images/top.jpg");
+    float: right;
+    height: 27px;
+    margin: 0 auto;
+    padding-right: 0;
+    text-align: left;
+    width: 435px;
+}

@@ -5,6 +5,6 @@
 <title>网上超市-center</title>
 </head>
 	<body>
-		center
+		我在中间
 	</body>
 </html>

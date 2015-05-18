@@ -4,9 +4,9 @@
 <head>
 <title>网上超市-主页</title>
 </head>
-	<frameset rows="10%,70%,20%" frameborder="no" border="0" framespacing="0">
-		<frame src="getTop.do">
-		<frame src="getCenter.do">
-		<frame src="getFoot.do">
+	<frameset rows="30%,50%,20%" frameborder="no">
+		<frame src="<%=request.getContextPath()%>/getTop.do" scrolling="no">
+		<frame src="<%=request.getContextPath()%>/getCenter.do" name="centerFrame" id="centerFrame" scrolling="no">
+		<frame src="<%=request.getContextPath()%>/getFoot.do" scrolling="no">
 	</frameset>
 </html>
