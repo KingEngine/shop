@@ -2,9 +2,10 @@
 <!DOCTYPE configuration     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-
 	<typeAliases>
+		<typeAlias alias="Customer" type="com.shop.bean.Customer" />
 	</typeAliases>
 	<mappers>
+		<mapper resource="mybatis-mapper/Tbl_CustomerMapper.xml"/>
 	</mappers>
 </configuration>

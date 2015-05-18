@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <!--表 customer操作方法-->
+<mapper namespace="CustomerManager">
+	<resultMap type="Customer" id="CustomerMap">
+		 	<result property="id" column="id" />
+		 	<result property="customerNickname" column="customer_nickname" />
+		 	<result property="customerPwd" column="customer_pwd" />
+		 	<result property="customerEmail" column="customer_email" />
+		 	<result property="customerPhone" column="customer_phone" />
+		 	<result property="customerPwdQuestion" column="customer_pwd_question" />
+		 	<result property="customerPwdAnswer" column="customer_pwd_answer" />
+		 	<result property="customerStatus" column="customer_status" />
+	</resultMap>
+    <!--分页查询 记录-->
+	<select id="queryPage" parameterType="Customer" resultMap="CustomerMap">
+		select * from customer t
+		where 1=1 
+    		<if test="id != null and id != ''">
+    			 and t.id = #{id}
+    		</if>
+    		<if test="customerNickname != null and customerNickname != ''">
+    			 and t.customer_nickname = #{customerNickname}
+    		</if>
+    		<if test="customerPwd != null and customerPwd != ''">
+    			 and t.customer_pwd = #{customerPwd}
+    		</if>
+    		<if test="customerEmail != null and customerEmail != ''">
+    			 and t.customer_email = #{customerEmail}
+    		</if>
+    		<if test="customerPhone != null and customerPhone != ''">
+    			 and t.customer_phone = #{customerPhone}
+    		</if>
+    		<if test="customerPwdQuestion != null and customerPwdQuestion != ''">
+    			 and t.customer_pwd_question = #{customerPwdQuestion}
+    		</if>
+    		<if test="customerPwdAnswer != null and customerPwdAnswer != ''">
+    			 and t.customer_pwd_answer = #{customerPwdAnswer}
+    		</if>
+    		<if test="customerStatus != null and customerStatus != ''">
+    			 and t.customer_status = #{customerStatus}
+    		</if>
+        limit #{startRow},#{limit}
+	</select>
+	<!--分页查询  计数-->
+	<select id="queryPageCount" parameterType="Customer" resultType="int">
+		select count(*) from customer t
+		where 1=1 
+    		<if test="id != null and id != ''">
+    			 and t.id = #{id}
+    		</if>
+    		<if test="customerNickname != null and customerNickname != ''">
+    			 and t.customer_nickname = #{customerNickname}
+    		</if>
+    		<if test="customerPwd != null and customerPwd != ''">
+    			 and t.customer_pwd = #{customerPwd}
+    		</if>
+    		<if test="customerEmail != null and customerEmail != ''">
+    			 and t.customer_email = #{customerEmail}
+    		</if>
+    		<if test="customerPhone != null and customerPhone != ''">
+    			 and t.customer_phone = #{customerPhone}
+    		</if>
+    		<if test="customerPwdQuestion != null and customerPwdQuestion != ''">
+    			 and t.customer_pwd_question = #{customerPwdQuestion}
+    		</if>
+    		<if test="customerPwdAnswer != null and customerPwdAnswer != ''">
+    			 and t.customer_pwd_answer = #{customerPwdAnswer}
+    		</if>
+    		<if test="customerStatus != null and customerStatus != ''">
+    			 and t.customer_status = #{customerStatus}
+    		</if>
+	</select>
+	<!--查询方法-->
+	<select id="select" parameterType="Customer" resultMap="CustomerMap">
+		select * from customer t
+		where 1=1 
+    		<if test="id != null and id != ''">
+    			 and t.id = #{id}
+    		</if>
+    		<if test="customerNickname != null and customerNickname != ''">
+    			 and t.customer_nickname = #{customerNickname}
+    		</if>
+    		<if test="customerPwd != null and customerPwd != ''">
+    			 and t.customer_pwd = #{customerPwd}
+    		</if>
+    		<if test="customerEmail != null and customerEmail != ''">
+    			 and t.customer_email = #{customerEmail}
+    		</if>
+    		<if test="customerPhone != null and customerPhone != ''">
+    			 and t.customer_phone = #{customerPhone}
+    		</if>
+    		<if test="customerPwdQuestion != null and customerPwdQuestion != ''">
+    			 and t.customer_pwd_question = #{customerPwdQuestion}
+    		</if>
+    		<if test="customerPwdAnswer != null and customerPwdAnswer != ''">
+    			 and t.customer_pwd_answer = #{customerPwdAnswer}
+    		</if>
+    		<if test="customerStatus != null and customerStatus != ''">
+    			 and t.customer_status = #{customerStatus}
+    		</if>
+	</select>
+	<!--添加方法-->
+	<insert id="insert" parameterType="Customer">
+		insert into customer(
+				id,
+				customer_nickname,
+				customer_pwd,
+				customer_email,
+				customer_phone,
+				customer_pwd_question,
+				customer_pwd_answer,
+				customer_status,
+		) values(
+				#{id},
+			
+				#{customerNickname},
+			
+				#{customerPwd},
+			
+				#{customerEmail},
+			
+				#{customerPhone},
+			
+				#{customerPwdQuestion},
+			
+				#{customerPwdAnswer},
+			
+				#{customerStatus},
+			)
+	</insert>
+	<!--更新方法-->
+	<update id="update" parameterType="Customer">
+		update customer 
+		<set> 
+	    		<if test="id != null and id != ''">
+	    			 t.id = #{id},
+	    		</if>
+	    		<if test="customerNickname != null and customerNickname != ''">
+	    			 t.customer_nickname = #{customerNickname},
+	    		</if>
+	    		<if test="customerPwd != null and customerPwd != ''">
+	    			 t.customer_pwd = #{customerPwd},
+	    		</if>
+	    		<if test="customerEmail != null and customerEmail != ''">
+	    			 t.customer_email = #{customerEmail},
+	    		</if>
+	    		<if test="customerPhone != null and customerPhone != ''">
+	    			 t.customer_phone = #{customerPhone},
+	    		</if>
+	    		<if test="customerPwdQuestion != null and customerPwdQuestion != ''">
+	    			 t.customer_pwd_question = #{customerPwdQuestion},
+	    		</if>
+	    		<if test="customerPwdAnswer != null and customerPwdAnswer != ''">
+	    			 t.customer_pwd_answer = #{customerPwdAnswer},
+	    		</if>
+	    		<if test="customerStatus != null and customerStatus != ''">
+	    			 t.customer_status = #{customerStatus},
+	    		</if>
+        </set> 
+		where
+		1=1
+    		<if test="id != null and id != ''">
+    			and  t.id = #{id}
+    		</if>
+    		<if test="customerNickname != null and customerNickname != ''">
+    			and  t.customer_nickname = #{customerNickname}
+    		</if>
+    		<if test="customerPwd != null and customerPwd != ''">
+    			and  t.customer_pwd = #{customerPwd}
+    		</if>
+    		<if test="customerEmail != null and customerEmail != ''">
+    			and  t.customer_email = #{customerEmail}
+    		</if>
+    		<if test="customerPhone != null and customerPhone != ''">
+    			and  t.customer_phone = #{customerPhone}
+    		</if>
+    		<if test="customerPwdQuestion != null and customerPwdQuestion != ''">
+    			and  t.customer_pwd_question = #{customerPwdQuestion}
+    		</if>
+    		<if test="customerPwdAnswer != null and customerPwdAnswer != ''">
+    			and  t.customer_pwd_answer = #{customerPwdAnswer}
+    		</if>
+    		<if test="customerStatus != null and customerStatus != ''">
+    			and  t.customer_status = #{customerStatus}
+    		</if>
+	</update>
+	<!--删除方法-->
+	<delete id="delete" parameterType="Customer">
+		delete from customer where 1=1
+    		<if test="id != null and id != ''">
+    			and t.id = #{id}
+    		</if>
+    		<if test="customerNickname != null and customerNickname != ''">
+    			and t.customer_nickname = #{customerNickname}
+    		</if>
+    		<if test="customerPwd != null and customerPwd != ''">
+    			and t.customer_pwd = #{customerPwd}
+    		</if>
+    		<if test="customerEmail != null and customerEmail != ''">
+    			and t.customer_email = #{customerEmail}
+    		</if>
+    		<if test="customerPhone != null and customerPhone != ''">
+    			and t.customer_phone = #{customerPhone}
+    		</if>
+    		<if test="customerPwdQuestion != null and customerPwdQuestion != ''">
+    			and t.customer_pwd_question = #{customerPwdQuestion}
+    		</if>
+    		<if test="customerPwdAnswer != null and customerPwdAnswer != ''">
+    			and t.customer_pwd_answer = #{customerPwdAnswer}
+    		</if>
+    		<if test="customerStatus != null and customerStatus != ''">
+    			and t.customer_status = #{customerStatus}
+    		</if>
+	</delete>
+</mapper>
+
+
+
