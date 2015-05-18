@@ -14,7 +14,6 @@
 	 http://www.springframework.org/schema/util		
 	 http://www.springframework.org/schema/util/spring-util-3.0.xsd"
 	default-lazy-init="true">
-	<!-- <context:property-placeholder location="classpath:properties/application_dev.properties" /> -->
 	<util:properties id="property" location="classpath:properties/application_dev.properties"/>
 	
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -25,7 +24,7 @@
 		</property>
 	</bean>
 	
-	<!-- <context:component-scan base-package="com.chinaebi.p2pengine" /> -->
+	<context:component-scan base-package="com.shop" />
 	
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="#{property[jdbcDriverClassName]}" />

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <!--表 products操作方法-->
+<mapper namespace="ProductsManager">
+	<resultMap type="Products" id="ProductsMap">
+		 	<result property="id" column="id" />
+		 	<result property="productName" column="product_name" />
+		 	<result property="productCategory" column="product_category" />
+		 	<result property="productStock" column="product_stock" />
+		 	<result property="productCurrentPrice" column="product_current_price" />
+		 	<result property="productOriginalPrice" column="product_original_price" />
+		 	<result property="productHeat" column="product_heat" />
+	</resultMap>
+    <!--分页查询 记录-->
+	<select id="queryPage" parameterType="Products" resultMap="ProductsMap">
+		select * from products t
+		where 1=1 
+    		<if test="id != null and id != ''">
+    			 and t.id = #{id}
+    		</if>
+    		<if test="productName != null and productName != ''">
+    			 and t.product_name = #{productName}
+    		</if>
+    		<if test="productCategory != null and productCategory != ''">
+    			 and t.product_category = #{productCategory}
+    		</if>
+    		<if test="productStock != null and productStock != ''">
+    			 and t.product_stock = #{productStock}
+    		</if>
+    		<if test="productCurrentPrice != null and productCurrentPrice != ''">
+    			 and t.product_current_price = #{productCurrentPrice}
+    		</if>
+    		<if test="productOriginalPrice != null and productOriginalPrice != ''">
+    			 and t.product_original_price = #{productOriginalPrice}
+    		</if>
+    		<if test="productHeat != null and productHeat != ''">
+    			 and t.product_heat = #{productHeat}
+    		</if>
+        limit #{startRow},#{limit}
+	</select>
+	<!--分页查询  计数-->
+	<select id="queryPageCount" parameterType="Products" resultType="int">
+		select count(*) from products t
+		where 1=1 
+    		<if test="id != null and id != ''">
+    			 and t.id = #{id}
+    		</if>
+    		<if test="productName != null and productName != ''">
+    			 and t.product_name = #{productName}
+    		</if>
+    		<if test="productCategory != null and productCategory != ''">
+    			 and t.product_category = #{productCategory}
+    		</if>
+    		<if test="productStock != null and productStock != ''">
+    			 and t.product_stock = #{productStock}
+    		</if>
+    		<if test="productCurrentPrice != null and productCurrentPrice != ''">
+    			 and t.product_current_price = #{productCurrentPrice}
+    		</if>
+    		<if test="productOriginalPrice != null and productOriginalPrice != ''">
+    			 and t.product_original_price = #{productOriginalPrice}
+    		</if>
+    		<if test="productHeat != null and productHeat != ''">
+    			 and t.product_heat = #{productHeat}
+    		</if>
+	</select>
+	<!--查询方法-->
+	<select id="select" parameterType="Products" resultMap="ProductsMap">
+		select * from products t
+		where 1=1 
+    		<if test="id != null and id != ''">
+    			 and t.id = #{id}
+    		</if>
+    		<if test="productName != null and productName != ''">
+    			 and t.product_name = #{productName}
+    		</if>
+    		<if test="productCategory != null and productCategory != ''">
+    			 and t.product_category = #{productCategory}
+    		</if>
+    		<if test="productStock != null and productStock != ''">
+    			 and t.product_stock = #{productStock}
+    		</if>
+    		<if test="productCurrentPrice != null and productCurrentPrice != ''">
+    			 and t.product_current_price = #{productCurrentPrice}
+    		</if>
+    		<if test="productOriginalPrice != null and productOriginalPrice != ''">
+    			 and t.product_original_price = #{productOriginalPrice}
+    		</if>
+    		<if test="productHeat != null and productHeat != ''">
+    			 and t.product_heat = #{productHeat}
+    		</if>
+	</select>
+	<!--添加方法-->
+	<insert id="insert" parameterType="Products">
+		insert into products(
+				id,
+				product_name,
+				product_category,
+				product_stock,
+				product_current_price,
+				product_original_price,
+				product_heat,
+		) values(
+				#{id},
+			
+				#{productName},
+			
+				#{productCategory},
+			
+				#{productStock},
+			
+				#{productCurrentPrice},
+			
+				#{productOriginalPrice},
+			
+				#{productHeat},
+			)
+	</insert>
+	<!--更新方法-->
+	<update id="update" parameterType="Products">
+		update products 
+		<set> 
+	    		<if test="id != null and id != ''">
+	    			 t.id = #{id},
+	    		</if>
+	    		<if test="productName != null and productName != ''">
+	    			 t.product_name = #{productName},
+	    		</if>
+	    		<if test="productCategory != null and productCategory != ''">
+	    			 t.product_category = #{productCategory},
+	    		</if>
+	    		<if test="productStock != null and productStock != ''">
+	    			 t.product_stock = #{productStock},
+	    		</if>
+	    		<if test="productCurrentPrice != null and productCurrentPrice != ''">
+	    			 t.product_current_price = #{productCurrentPrice},
+	    		</if>
+	    		<if test="productOriginalPrice != null and productOriginalPrice != ''">
+	    			 t.product_original_price = #{productOriginalPrice},
+	    		</if>
+	    		<if test="productHeat != null and productHeat != ''">
+	    			 t.product_heat = #{productHeat},
+	    		</if>
+        </set> 
+		where
+		1=1
+    		<if test="id != null and id != ''">
+    			and  t.id = #{id}
+    		</if>
+    		<if test="productName != null and productName != ''">
+    			and  t.product_name = #{productName}
+    		</if>
+    		<if test="productCategory != null and productCategory != ''">
+    			and  t.product_category = #{productCategory}
+    		</if>
+    		<if test="productStock != null and productStock != ''">
+    			and  t.product_stock = #{productStock}
+    		</if>
+    		<if test="productCurrentPrice != null and productCurrentPrice != ''">
+    			and  t.product_current_price = #{productCurrentPrice}
+    		</if>
+    		<if test="productOriginalPrice != null and productOriginalPrice != ''">
+    			and  t.product_original_price = #{productOriginalPrice}
+    		</if>
+    		<if test="productHeat != null and productHeat != ''">
+    			and  t.product_heat = #{productHeat}
+    		</if>
+	</update>
+	<!--删除方法-->
+	<delete id="delete" parameterType="Products">
+		delete from products where 1=1
+    		<if test="id != null and id != ''">
+    			and t.id = #{id}
+    		</if>
+    		<if test="productName != null and productName != ''">
+    			and t.product_name = #{productName}
+    		</if>
+    		<if test="productCategory != null and productCategory != ''">
+    			and t.product_category = #{productCategory}
+    		</if>
+    		<if test="productStock != null and productStock != ''">
+    			and t.product_stock = #{productStock}
+    		</if>
+    		<if test="productCurrentPrice != null and productCurrentPrice != ''">
+    			and t.product_current_price = #{productCurrentPrice}
+    		</if>
+    		<if test="productOriginalPrice != null and productOriginalPrice != ''">
+    			and t.product_original_price = #{productOriginalPrice}
+    		</if>
+    		<if test="productHeat != null and productHeat != ''">
+    			and t.product_heat = #{productHeat}
+    		</if>
+	</delete>
+</mapper>
+
+
+

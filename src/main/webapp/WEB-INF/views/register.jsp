@@ -16,6 +16,32 @@
 				<tr>
 					<td>登录密码：</td>
 					<td><input class="easyui-textbox" type="password" name="customerPwd"></td>
+					<td><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<td>确认密码：</td>
+					<td><input class="easyui-textbox" type="password" name="customerPwdConfirm"></td>
+					<td><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<td>邮箱：</td>
+					<td><input class="easyui-textbox" name="customerEmail"></td>
+					<td><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<td>手机号：</td>
+					<td><input class="easyui-textbox" name="customerPhone"></td>
+					<td><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<td>密码找回问题：</td>
+					<td><input class="easyui-textbox" name="customerPwdQuestion"></td>
+					<td><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<td>密码找回答案：</td>
+					<td><input class="easyui-textbox" name="customerPwdAnswer"></td>
+					<td><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td colspan="3">

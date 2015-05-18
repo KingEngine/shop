@@ -68,6 +68,7 @@ public class CustomerDaoImpl extends SqlSessionDaoSupport implements ICustomerDa
 	  * @throws Exception
 	  */
 	 public boolean insert(Customer param){
+		param.setCustomerStatus("0");//默认是可用状态
 	 	int affectedRows =  getSqlSession().insert("CustomerManager.insert",param);
 		if(affectedRows>0)
 			return true;

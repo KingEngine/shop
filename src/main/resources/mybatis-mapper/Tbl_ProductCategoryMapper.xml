@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <!--表 product_category操作方法-->
+<mapper namespace="ProductCategoryManager">
+	<resultMap type="ProductCategory" id="ProductCategoryMap">
+		 	<result property="id" column="id" />
+		 	<result property="categoryId" column="category_id" />
+		 	<result property="categoryName" column="category_name" />
+		 	<result property="categoryParentId" column="category_parent_id" />
+		 	<result property="categoryLevel" column="category_level" />
+		 	<result property="categoryStatus" column="category_status" />
+	</resultMap>
+	<!--查询方法-->
+	<select id="select" parameterType="ProductCategory" resultMap="ProductCategoryMap">
+		select * from product_category t
+		where 1=1 
+    		<if test="id != null and id != ''">
+    			 and t.id = #{id}
+    		</if>
+    		<if test="categoryId != null and categoryId != ''">
+    			 and t.category_id = #{categoryId}
+    		</if>
+    		<if test="categoryName != null and categoryName != ''">
+    			 and t.category_name = #{categoryName}
+    		</if>
+    		<if test="categoryParentId != null and categoryParentId != ''">
+    			 and t.category_parent_id = #{categoryParentId}
+    		</if>
+    		<if test="categoryLevel != null and categoryLevel != ''">
+    			 and t.category_level = #{categoryLevel}
+    		</if>
+    		<if test="categoryStatus != null and categoryStatus != ''">
+    			 and t.category_status = #{categoryStatus}
+    		</if>
+	</select>
+</mapper>
+
+
+

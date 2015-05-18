@@ -1,7 +1,7 @@
 create table customer(
 	id int primary key AUTO_INCREMENT comment'主键',
 	customer_nickname varchar(50) unique key not null comment'用户昵称',
-	customer_pwd varchar(20) not null comment'用户密码',
+	customer_pwd varchar(100) not null comment'用户密码',
 	customer_email varchar(50) not null comment'用户邮箱',
 	customer_phone varchar(20) not null comment'用户手机号',
 	customer_pwd_question varchar(100) not null comment'用户密码问题(用于密码找回)',

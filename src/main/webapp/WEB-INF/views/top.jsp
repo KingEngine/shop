@@ -1,5 +1,6 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/top.css"/>
 <div id="header">
  
@@ -7,19 +8,20 @@
     <tbody><tr>
 	    <td width="330" rowspan="2"><a href="index.asp"><img border="0" align="left" src="<%=request.getContextPath()%>/images/logo.jpg"></a></td>
 	    <td valign="top" colspan="2">  
-			<div id="top"><center>
-			 您好！欢迎光临立领伟业！[ <b><a href="hyzq.asp"><font color="#FF6600">登录</font></a></b> / <b><a href="regedit.asp"><font color="#FF6600">注册</font></a></b> ]
-			</center>
+			<div id="top">
+				<c:choose>
+					<c:when test="${sessionScope.customer==null}">
+					   您好,欢迎光临我的网上超市！[ <b><a href="<%=request.getContextPath()%>/loginPre.do" target="centerFrame"><font color="#FF6600">登录</font></a></b> / <b><a href="register.do" target="centerFrame"><font color="#FF6600">注册</font></a></b> ]
+					</c:when>
+					<c:otherwise>
+						您好,${sessionScope.customer.customerNickname}
+					</c:otherwise>
+				</c:choose>
 			</div>
         </td></tr>
 	<tr>
-		<td style="padding-top:6px;"><a href="order_all.asp?lookorder=1"><img border="0" class="headimg" src="<%=request.getContextPath()%>/images/gwc.JPG"></a>
-		<a href="hyzq.asp"><img border="0" class="headimg" src="<%=request.getContextPath()%>/images/zh.JPG"></a> 
-		<a href="show_foot.asp?pkid=2257&amp;c_id=295"><img border="0" class="headimg" src="<%=request.getContextPath()%>/images/zxkf.JPG"></a>
+		<td style="padding-top:6px;"><a href="<%=request.getContextPath()%>/getCartPage.do" target="centerFrame"><img border="0" class="headimg" src="<%=request.getContextPath()%>/images/gwc.JPG"></a>
 		</td>
-		
-		 
-		
 	</tr>
   </tbody></table> 
  
@@ -90,4 +92,5 @@
  
   </div>
   </div>
+
 

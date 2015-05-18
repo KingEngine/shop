@@ -4,8 +4,12 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="Customer" type="com.shop.bean.Customer" />
+		<typeAlias alias="ProductCategory" type="com.shop.bean.ProductCategory" />
+		<typeAlias alias="Products" type="com.shop.bean.Products"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis-mapper/Tbl_CustomerMapper.xml"/>
+		<mapper resource="mybatis-mapper/Tbl_ProductCategoryMapper.xml"/>
+		<mapper resource="mybatis-mapper/Tbl_ProductsMapper.xml"/>
 	</mappers>
 </configuration>

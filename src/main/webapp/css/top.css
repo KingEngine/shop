@@ -1,4 +1,7 @@
-
+#header {
+    font-size: 12px;
+    text-align: left;
+}
 #top {
     background-image: url("../images/top.jpg");
     float: right;

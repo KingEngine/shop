@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class PageController {
+	
+	@RequestMapping(value = "getIndex.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String getIndex() {
+		return "index";
+	}
+	
 	@RequestMapping(value = "getTop.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getTop() {
 		return "top";
