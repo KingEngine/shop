@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <!--表 bank_config操作方法-->
+<mapper namespace="BankConfigManager">
+	<resultMap type="BankConfig" id="BankConfigMap">
+		 	<id property="id" column="id" />
+		 	<result property="bankId" column="bank_id" />
+		 	<result property="bankName" column="bank_name" />
+		 	<result property="bankIcoPath" column="bank_ico_path" />
+		 	<result property="bankType" column="bank_type" />
+		 	<result property="status" column="status" />
+	</resultMap>
+   
+	<!--查询方法-->
+	<select id="select" parameterType="BankConfig" resultMap="BankConfigMap">
+		select * from bank_config t
+		where 1=1 
+    		<if test="id != null and id != ''">
+    			 and t.id = #{id}
+    		</if>
+    		<if test="bankId != null and bankId != ''">
+    			 and t.bank_id = #{bankId}
+    		</if>
+    		<if test="bankName != null and bankName != ''">
+    			 and t.bank_name = #{bankName}
+    		</if>
+    		<if test="bankIcoPath != null and bankIcoPath != ''">
+    			 and t.bank_ico_path = #{bankIcoPath}
+    		</if>
+    		<if test="bankType != null and bankType != ''">
+    			 and t.bank_type = #{bankType}
+    		</if>
+    		<if test="status != null and status != ''">
+    			 and t.status = #{status}
+    		</if>
+	</select>
+</mapper>
+
+
+
