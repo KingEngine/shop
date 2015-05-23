@@ -16,6 +16,7 @@ public class Products implements java.io.Serializable {
 	private int productStock;/* 对应表中product_stock */
 	private String productCurrentPrice;/* 对应表中product_current_price */
 	private String productOriginalPrice;/* 对应表中product_original_price */
+	private String productImagetPath;/* 对应表中product_imaget_path */
 	private String productHeat;/* 对应表中product_heat */
 
 	public int getId() {
@@ -72,6 +73,14 @@ public class Products implements java.io.Serializable {
 
 	public void setProductOriginalPrice(String productOriginalPrice) {
 		this.productOriginalPrice = productOriginalPrice;
+	}
+
+	public String getProductImagetPath() {
+		return productImagetPath;
+	}
+
+	public void setProductImagetPath(String productImagetPath) {
+		this.productImagetPath = productImagetPath;
 	}
 
 	public String getProductHeat() {

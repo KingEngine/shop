@@ -3,15 +3,13 @@ package com.shop.web.controller;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.shop.bean.Cart;
 import com.shop.bean.CartProducts;
 import com.shop.bean.Products;
@@ -61,5 +59,11 @@ public class ShoppingController {
 	public String getCartPage(){
 		return "cart";
 	}
-	//去结算
+	//查看商品列表
+	@RequestMapping(value = "getProductList.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String getProductList(@RequestParam(value="productCategoryId",required=false)String productCategoryId,Model model) {
+		List<Products> products = shoppingService.getProductList(productCategoryId);
+		model.addAttribute("products", products);
+		return "product_list";
+	}
 }

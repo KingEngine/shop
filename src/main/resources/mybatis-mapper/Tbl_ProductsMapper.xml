@@ -10,86 +10,40 @@
 		 	<result property="productStock" column="product_stock" />
 		 	<result property="productCurrentPrice" column="product_current_price" />
 		 	<result property="productOriginalPrice" column="product_original_price" />
+		 	<result property="productImagetPath" column="product_imaget_path" />
 		 	<result property="productHeat" column="product_heat" />
 	</resultMap>
     <!--分页查询 记录-->
 	<select id="queryPage" parameterType="Products" resultMap="ProductsMap">
-		select * from products t
-		where 1=1 
-    		<if test="id != null and id != ''">
-    			 and t.id = #{id}
-    		</if>
-    		<if test="productName != null and productName != ''">
-    			 and t.product_name = #{productName}
-    		</if>
-    		<if test="productCategory != null and productCategory != ''">
+		select * from products t 
+			left join product_category pc
+			on t.product_category = pc.category_parent_id
+		where 1=1
+		<if test="productCategory != null and productCategory != ''">
     			 and t.product_category = #{productCategory}
-    		</if>
-    		<if test="productStock != null and productStock != ''">
-    			 and t.product_stock = #{productStock}
-    		</if>
-    		<if test="productCurrentPrice != null and productCurrentPrice != ''">
-    			 and t.product_current_price = #{productCurrentPrice}
-    		</if>
-    		<if test="productOriginalPrice != null and productOriginalPrice != ''">
-    			 and t.product_original_price = #{productOriginalPrice}
-    		</if>
-    		<if test="productHeat != null and productHeat != ''">
-    			 and t.product_heat = #{productHeat}
-    		</if>
+    	</if>
         limit #{startRow},#{limit}
 	</select>
 	<!--分页查询  计数-->
 	<select id="queryPageCount" parameterType="Products" resultType="int">
-		select count(*) from products t
-		where 1=1 
-    		<if test="id != null and id != ''">
-    			 and t.id = #{id}
-    		</if>
-    		<if test="productName != null and productName != ''">
-    			 and t.product_name = #{productName}
-    		</if>
-    		<if test="productCategory != null and productCategory != ''">
+		select count(*) from products t 
+			left join product_category pc
+			on t.product_category = pc.category_parent_id
+		where 1=1
+		<if test="productCategory != null and productCategory != ''">
     			 and t.product_category = #{productCategory}
-    		</if>
-    		<if test="productStock != null and productStock != ''">
-    			 and t.product_stock = #{productStock}
-    		</if>
-    		<if test="productCurrentPrice != null and productCurrentPrice != ''">
-    			 and t.product_current_price = #{productCurrentPrice}
-    		</if>
-    		<if test="productOriginalPrice != null and productOriginalPrice != ''">
-    			 and t.product_original_price = #{productOriginalPrice}
-    		</if>
-    		<if test="productHeat != null and productHeat != ''">
-    			 and t.product_heat = #{productHeat}
-    		</if>
+    	</if>
+        limit #{startRow},#{limit}
 	</select>
 	<!--查询方法-->
 	<select id="select" parameterType="Products" resultMap="ProductsMap">
-		select * from products t
-		where 1=1 
-    		<if test="id != null and id != ''">
-    			 and t.id = #{id}
-    		</if>
-    		<if test="productName != null and productName != ''">
-    			 and t.product_name = #{productName}
-    		</if>
-    		<if test="productCategory != null and productCategory != ''">
-    			 and t.product_category = #{productCategory}
-    		</if>
-    		<if test="productStock != null and productStock != ''">
-    			 and t.product_stock = #{productStock}
-    		</if>
-    		<if test="productCurrentPrice != null and productCurrentPrice != ''">
-    			 and t.product_current_price = #{productCurrentPrice}
-    		</if>
-    		<if test="productOriginalPrice != null and productOriginalPrice != ''">
-    			 and t.product_original_price = #{productOriginalPrice}
-    		</if>
-    		<if test="productHeat != null and productHeat != ''">
-    			 and t.product_heat = #{productHeat}
-    		</if>
+		select * from products t 
+			left join product_category pc
+			on t.product_category = pc.category_parent_id
+		where 1=1
+		<if test="productCategory != null and productCategory != ''">
+    		 and t.product_category = #{productCategory}
+    	</if>
 	</select>
 	<!--添加方法-->
 	<insert id="insert" parameterType="Products">

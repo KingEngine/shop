@@ -32,7 +32,10 @@
 	<listener>
 		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
 	</listener>
-		<servlet>
+	<listener>
+		<listener-class>com.shop.web.listener.ServletListener</listener-class>
+	</listener>
+	<servlet>
 		<servlet-name>springServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>

@@ -8,6 +8,6 @@
 <%@include file="tag.tag"%>  
 </head>
 	<body>
-		这是购物车页面
+		商品列表
 	</body>
 </html>

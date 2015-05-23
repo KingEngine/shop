@@ -13,7 +13,7 @@ import com.shop.dao.IProductCategoryDao;
  *
  * @author king
  */
-@Component
+@Component("productCategoryDao")
 public class ProductCategoryDaoImpl extends SqlSessionDaoSupport implements IProductCategoryDao{
 	
 	 /**
