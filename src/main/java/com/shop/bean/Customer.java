@@ -1,11 +1,6 @@
 package com.shop.bean;
 
-/**
- * 对应表 customer
- * 
- * @author king
- *
- */
+
 public class Customer implements java.io.Serializable {
 
 	private static final long serialVersionUID = 4812585912417729578L;

@@ -15,6 +15,8 @@ public interface IProductsDao {
 	public Products selectOne(Products param);
 
 	public List<Products> selectList(Products param);
+	
+	public List<Products> selectHotList();
 
 	public Page<Products> selectPage(Page<Products> page, Products param);
 }

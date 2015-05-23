@@ -14,18 +14,13 @@
     <div class="w l">
       <ul class="footnav lili lile w l">
         <li>网站导航</li>
-        <li><a href="">酷衣轩官网</a></li>
-        <li><a href="">酷衣轩首页</a></li>
-        <li><a href="">酷衣轩社区</a></li>
       </ul>
     </div>
     <div class="w l sx">
       <ul class="lxnav lili lile l">
         <li><a href="">关于本站</a></li>
-        <li><a href="">酷衣轩首页</a></li>
-        <li><a href="">酷衣轩社区</a></li>
       </ul>
-      <div class="bq lili lile r"> 酷衣轩文化传播 www.jhzwed.com </div>
+      <div class="bq lili lile r"> www.jinyixinghua.com</div>
     </div>
   </div>
 </div>

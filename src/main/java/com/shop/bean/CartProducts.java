@@ -1,16 +1,19 @@
 package com.shop.bean;
 
+import java.math.BigDecimal;
+
 public class CartProducts {
 	private String productSN;
 
 	private String productName;
 
-	private String productPrice;
+	private BigDecimal productPrice;
 
 	private int productCount;
 
 	public CartProducts() {
 	}
+
 	public String getProductSN() {
 		return productSN;
 	}
@@ -27,11 +30,11 @@ public class CartProducts {
 		this.productName = productName;
 	}
 
-	public String getProductPrice() {
+	public BigDecimal getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(String productPrice) {
+	public void setProductPrice(BigDecimal productPrice) {
 		this.productPrice = productPrice;
 	}
 

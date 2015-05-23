@@ -3,24 +3,24 @@ package com.shop.web.controller;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.shop.bean.Cart;
 import com.shop.bean.CartProducts;
+import com.shop.bean.Customer;
 import com.shop.bean.Products;
 import com.shop.constant.Constants;
 import com.shop.service.ShoppingService;
 
-/**
- * 购物控制器
- * 
- * @author king
- */
 @Controller
 public class ShoppingController {
 	
@@ -35,7 +35,9 @@ public class ShoppingController {
 		Cart cart = new Cart();
 		CartProducts cartProduct = new CartProducts();
 		cartProduct.setProductName(product.getProductName());
-		cartProduct.setProductPrice(product.getProductCurrentPrice());
+		cartProduct.setProductPrice(new BigDecimal(product.getProductCurrentPrice()));
+		cartProduct.setProductSN(product.getProductSerialNumber());
+		cartProduct.setProductCount(1);
 		if(null==obj){
 			List<CartProducts> cartProducts = new ArrayList<CartProducts>();
 			cartProducts.add(cartProduct);
@@ -43,12 +45,22 @@ public class ShoppingController {
 			cart.setTotalPrice(new BigDecimal(product.getProductCurrentPrice()));
 		}else{
 			cart = (Cart) obj;
-			BigDecimal totalPrice = new BigDecimal("0.00");
+			boolean addFlag = true;
 			for(CartProducts o:cart.getCartProducts()){
-				totalPrice.add(new BigDecimal(o.getProductPrice()));
+				if(StringUtils.equals(cartProduct.getProductSN(), o.getProductSN())){
+					o.setProductCount(o.getProductCount()+1);
+					o.setProductPrice(o.getProductPrice().add(cartProduct.getProductPrice()));
+					addFlag =false;
+				}
 			}
-			cart.getCartProducts().add(cartProduct);
-			cart.setTotalPrice(totalPrice);
+			if(addFlag){
+				cart.getCartProducts().add(cartProduct);
+			}
+			//计算总金额
+			cart.setTotalPrice(new BigDecimal("0.00"));
+			for(CartProducts o:cart.getCartProducts()){
+				cart.setTotalPrice(cart.getTotalPrice().add(o.getProductPrice()));
+			}
 		}
 		session.removeAttribute(Constants.SHOPPING_CART);
 		session.setAttribute(Constants.SHOPPING_CART, cart);
@@ -65,5 +77,14 @@ public class ShoppingController {
 		List<Products> products = shoppingService.getProductList(productCategoryId);
 		model.addAttribute("products", products);
 		return "product_list";
+	}
+	//去结算
+	@RequestMapping(value = "settleCart.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String fillContact(HttpSession session){
+		Customer customer = (Customer) session.getAttribute(Constants.CUSTOMER);
+		if(customer==null){
+			return "redirect:loginPre.do?nextPath=fill_contact";
+		}
+		return "fill_contact";
 	}
 }

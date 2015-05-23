@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shop.bean.Customer;
+import com.shop.bean.CustomerAddress;
 import com.shop.constant.Constants;
 import com.shop.service.AccountService;
 
@@ -28,6 +29,7 @@ public class AccountController {
 	
 	@RequestMapping(value = "loginPre.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String loginPre(@RequestParam(value="nextPath",required=false)String nextPath,ModelMap model) {
+		model.put("nextPath", nextPath);
 		return "login";
 	}
 	
@@ -46,9 +48,9 @@ public class AccountController {
 			
 		}
 		if(StringUtils.isBlank(nextPath)){
-			return "redirect:getIndex.do";
+			return "redirect:getCenter.do";
 		}
-		return "redirect:"+nextPath;
+		return nextPath;
 	}
 	
 	
@@ -73,5 +75,17 @@ public class AccountController {
 			model.addAttribute("EEE", e.getMessage());
 			return "error";
 		}
+	}
+	
+	@RequestMapping(value = "fillContact.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String fillContact(CustomerAddress address,HttpSession session,Model model) {
+		//得到用户ID
+		Customer customer = (Customer) session.getAttribute(Constants.CUSTOMER);
+		address.setCustomerId(customer.getId());
+		int addressId = accountService.fillContact(address);
+		//清除购物车
+		session.removeAttribute(Constants.SHOPPING_CART);
+		//TODO 记录插入到订单表中
+		return "cartSettle";
 	}
 }

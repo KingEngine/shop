@@ -4,11 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * 购物车类
- * 
- * @author king
- */
+
 public class Cart implements Serializable {
 
 	private static final long serialVersionUID = -8426116794187857119L;

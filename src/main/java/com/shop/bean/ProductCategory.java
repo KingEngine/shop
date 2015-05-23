@@ -1,11 +1,6 @@
 package com.shop.bean;
 
-/**
- * 对应表 product_category
- * 
- * @author king
- *
- */
+
 public class ProductCategory implements java.io.Serializable {
 	private static final long serialVersionUID = 6952116942145302811L;
 	private int id;/* 对应表中id */

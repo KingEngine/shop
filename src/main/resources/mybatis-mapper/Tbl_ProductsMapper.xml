@@ -6,6 +6,7 @@
 	<resultMap type="Products" id="ProductsMap">
 		 	<result property="id" column="id" />
 		 	<result property="productName" column="product_name" />
+		 	<result property="productSerialNumber" column="product_serial_number" />
 		 	<result property="productCategory" column="product_category" />
 		 	<result property="productStock" column="product_stock" />
 		 	<result property="productCurrentPrice" column="product_current_price" />
@@ -13,64 +14,20 @@
 		 	<result property="productImagetPath" column="product_imaget_path" />
 		 	<result property="productHeat" column="product_heat" />
 	</resultMap>
-    <!--分页查询 记录-->
-	<select id="queryPage" parameterType="Products" resultMap="ProductsMap">
-		select * from products t 
-			left join product_category pc
-			on t.product_category = pc.category_parent_id
-		where 1=1
-		<if test="productCategory != null and productCategory != ''">
-    			 and t.product_category = #{productCategory}
-    	</if>
-        limit #{startRow},#{limit}
-	</select>
-	<!--分页查询  计数-->
-	<select id="queryPageCount" parameterType="Products" resultType="int">
-		select count(*) from products t 
-			left join product_category pc
-			on t.product_category = pc.category_parent_id
-		where 1=1
-		<if test="productCategory != null and productCategory != ''">
-    			 and t.product_category = #{productCategory}
-    	</if>
-        limit #{startRow},#{limit}
-	</select>
 	<!--查询方法-->
-	<select id="select" parameterType="Products" resultMap="ProductsMap">
-		select * from products t 
-			left join product_category pc
-			on t.product_category = pc.category_parent_id
-		where 1=1
-		<if test="productCategory != null and productCategory != ''">
-    		 and t.product_category = #{productCategory}
-    	</if>
+	<select id="selectOne" parameterType="Products" resultMap="ProductsMap">
+    	select * from products t 
+		where t.id=#{id}
 	</select>
-	<!--添加方法-->
-	<insert id="insert" parameterType="Products">
-		insert into products(
-				id,
-				product_name,
-				product_category,
-				product_stock,
-				product_current_price,
-				product_original_price,
-				product_heat,
-		) values(
-				#{id},
-			
-				#{productName},
-			
-				#{productCategory},
-			
-				#{productStock},
-			
-				#{productCurrentPrice},
-			
-				#{productOriginalPrice},
-			
-				#{productHeat},
-			)
-	</insert>
+	<select id="select" parameterType="Products" resultMap="ProductsMap">
+    	select * from products t 
+		where t.product_category 
+		in(select category_id from  product_category where category_parent_id=#{productCategory})
+	</select>
+	<select id="selectHot" resultMap="ProductsMap">
+    	select * from products 
+		order by product_heat asc limit 5
+	</select>
 	<!--更新方法-->
 	<update id="update" parameterType="Products">
 		update products 

@@ -85,65 +85,15 @@
 							<ul class="picList w l f12">
 							<li>
                                 <dl>
-                                    	<dd>
-                                            <div class="pic"><a href=""><img src="images/0001/13420124357x.jpg" /></a></div>
-                                            <div class="title"><a href="">最美季侯风-果色手镯</a></div>
-                                            <div class="price">￥80</div>
-                                            <div class="title"><a href=""><img src="<%=request.getContextPath()%>/images/goumai.gif" /></a></div>
+                                	<c:forEach items="${hotProducts}" var="product">
+                                		<dd>
+                                            <div class="pic"><a href=""><img src="<%=request.getContextPath() %>/images/products/${product.productImagetPath}" /></a></div>
+                                            <div class="title">${product.productName}</div>
+                                            <div class="price">￥${product.productCurrentPrice}</div>
+                                            <div class="title"><a href="<%=request.getContextPath()%>/addCart.do?productId=${product.id}"><img src="<%=request.getContextPath()%>/images/goumai.gif" /></a></div>
                                         </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads2.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads1.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads1.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads2.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads1.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads1.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads1.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-									</dl>
-                                </li>
-								<li>
-                                	<dl>
-                                    	<dd>
-                                            <div class="pic"><a href=""><img src="images/ads1.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads1.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads2.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads1.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-                                        <dd>
-                                            <div class="pic"><a href=""><img src="images/ads2.jpg" /></a></div>
-                                            <div class="title"><a href="">效果图1</a></div>
-                                        </dd>
-									</dl>
+                                	</c:forEach>
+								 </dl>
                                 </li>
 							</ul>
 						</div>

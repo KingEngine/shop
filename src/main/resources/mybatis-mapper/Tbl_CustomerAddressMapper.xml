@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <!--表 customer_address操作方法-->
+<mapper namespace="CustomerAddressManager">
+	<resultMap type="CustomerAddress" id="CustomerAddressMap">
+		 	<id property="id" column="id" />
+		 	<result property="customerId" column="customer_id" />
+		 	<result property="customerPhone" column="customer_phone" />
+		 	<result property="customerAddress" column="customer_address" />
+		 	<result property="customerPostalCode" column="customer_postal_code" />
+	</resultMap>
+    
+	<!--添加方法-->
+	<insert id="insert" parameterType="CustomerAddress" useGeneratedKeys="true" keyProperty="mid">
+		insert into customer_address(
+				customer_id,
+				customer_phone,
+				customer_address,
+				customer_postal_code
+		) values(
+				#{customerId},
+				#{customerPhone},
+				#{customerAddress},
+				#{customerPostalCode}
+			)
+	</insert>
+</mapper>
+
+
+

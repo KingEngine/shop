@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shop.bean.Customer;
+import com.shop.bean.CustomerAddress;
+import com.shop.dao.impl.CustomerAddressDaoImpl;
 import com.shop.dao.impl.CustomerDaoImpl;
 import com.shop.utils.SecurityUtil;
 
@@ -15,6 +17,8 @@ import com.shop.utils.SecurityUtil;
 public class AccountService {
 	@Autowired
 	private CustomerDaoImpl customerDao;
+	@Autowired
+	private CustomerAddressDaoImpl customerAddressDaoImpl;
 	
 	public boolean register(Customer customer) throws UnsupportedEncodingException{
 		//密码加密
@@ -31,5 +35,8 @@ public class AccountService {
 			return null;
 		}
 		return query;
+	}
+	public int fillContact(CustomerAddress address){
+		return customerAddressDaoImpl.insert(address);
 	}
 }

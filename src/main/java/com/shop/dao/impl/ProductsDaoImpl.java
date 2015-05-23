@@ -23,7 +23,7 @@ public class ProductsDaoImpl extends PageDao implements IProductsDao {
 	 * @throws Exception
 	 */
 	public Products selectOne(Products param) {
-		return getSqlSession().selectOne("ProductsManager.select", param);
+		return getSqlSession().selectOne("ProductsManager.selectOne", param);
 	}
 
 	/**
@@ -45,6 +45,10 @@ public class ProductsDaoImpl extends PageDao implements IProductsDao {
 	public Page<Products> selectPage(Page<Products> page, Products param) {
 		return selectPage(page, "ProductsManager.queryPage",
 				"ProductsManager.queryPageCount", param);
+	}
+	
+	public List<Products> selectHotList() {
+		return getSqlSession().selectList("ProductsManager.selectHot");
 	}
 
 }
