@@ -10,6 +10,25 @@
 <link href="<%=request.getContextPath()%>/css/index.css" rel="stylesheet" type="text/css" />
 <%@include file="tag.tag"%>
 </head>
+<div class="c w1016">
+  <div class="w l">
+    <div class="logo l"><img src="images/logo.gif" alt="返回酷衣轩"></div>
+    <div w l>
+    	<a href="<%=request.getContextPath()%>/loginPre.do" target="_self">登陆</a>
+    	<a href="<%=request.getContextPath()%>/register.do" target="_self">注册</a>
+    </div>
+  </div>
+</div>
+<div class="w l nav bga bgc">
+  <div class="w1016 c">
+    <ul class="w l j-nav f14 fwb lili lile">
+     <li><a href="<%=request.getContextPath()%>/getCenter.do" target="_self">首页</a><em></em></li>
+      <c:forEach items="${firstMenu}" var="item">
+      		<li><a href="<%=request.getContextPath()%>/getProductList.do?productCategoryId=${item.categoryId}" target="_self">${item.categoryName}</a><em></em></li>
+      </c:forEach>
+    </ul>
+  </div>
+</div>
 <div class="block10 w l"></div>
 <div class="w1016 c">
   <div class="w l">
@@ -88,7 +107,7 @@
                                 	<c:forEach items="${hotProducts}" var="product">
                                 		<dd>
                                             <div class="pic"><a href=""><img src="<%=request.getContextPath() %>/images/products/${product.productImagetPath}" /></a></div>
-                                            <div class="title">${product.productName}</div>
+                                            <div class="title"><a href="javascript:void(0);" title="${product.productName}">${fn:substring(product.productName,0,11)}</a></div>
                                             <div class="price">￥${product.productCurrentPrice}</div>
                                             <div class="title"><a href="<%=request.getContextPath()%>/addCart.do?productId=${product.id}"><img src="<%=request.getContextPath()%>/images/goumai.gif" /></a></div>
                                         </dd>
@@ -101,6 +120,20 @@
 					<script type="text/javascript">jQuery("#autoPage").slide({ titCell:".hd ul", mainCell:".bd ul",effect:"left",vis:1,scroll:1,autoPlay:true,autoPage:true});</script>
             </div>
         </div>
-    
     </div>
+</div>
+<div id="foot" class="w l foot f12">
+  <div class="w1016 c">
+    <div class="w l">
+      <ul class="footnav lili lile w l">
+        <li>网站导航</li>
+      </ul>
+    </div>
+    <div class="w l sx">
+      <ul class="lxnav lili lile l">
+        <li><a href="">关于本站</a></li>
+      </ul>
+      <div class="bq lili lile r"> www.jinyixinghua.com</div>
+    </div>
+  </div>
 </div>

@@ -14,7 +14,7 @@ public class PageController {
 	@Autowired
 	private PageService pageService;
 	
-	@RequestMapping(value = "getIndex.do", method = { RequestMethod.GET,RequestMethod.POST })
+	/*@RequestMapping(value = "getIndex.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getIndex() {
 		return "index";
 	}
@@ -22,15 +22,15 @@ public class PageController {
 	@RequestMapping(value = "getTop.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getTop() {
 		return "top";
-	}
+	}*/
 	@RequestMapping(value = "getCenter.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getCenter(Model model) {
 		//获取最热商品列表
 		model.addAttribute("hotProducts",pageService.getHotProductList());
 		return "center";
 	}
-	@RequestMapping(value = "getFoot.do", method = { RequestMethod.GET,RequestMethod.POST })
+	/*@RequestMapping(value = "getFoot.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getFoot() {
 		return "foot";
-	}
+	}*/
 }
