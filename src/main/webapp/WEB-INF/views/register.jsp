@@ -51,7 +51,6 @@
       	<hr color="red">
      	 <form action="registerSubmit.do" method="post">
 			<table align="center" style="margin-left: 50px;">
-				<tr><td colspan="3" height="30" style="padding-top:2px;font-size:11pt;font-weight:bold;color:#ff8800">&nbsp;&nbsp;新用户注册：</td>  
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">用户名：</td>
 					<td><input class="easyui-textbox" name="customerNickname" style="width: 200px;"></input></td>

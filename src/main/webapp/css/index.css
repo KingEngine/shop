@@ -8,14 +8,14 @@
 
 
 /* Ê×Ò³»ÃµÆÆ¬ÇÐ»» */
-.slideBox{ width:538px; height:288px; overflow:hidden; position:relative; }
+.slideBox{ width:754px; height:288px; overflow:hidden; position:relative; }
 .slideBox .hd{ height:20px; overflow:hidden; position:absolute; right:10px; bottom:10px; z-index:1; }
 .slideBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
 .slideBox .hd ul li{ float:left; margin-right:5px;  width:20px; height:20px; line-height:20px; text-align:center; cursor: pointer; overflow: hidden;background: none repeat scroll 0% 0% rgb(255, 255, 255);display: inline;border-radius: 12px 12px 12px 12px;transition: all 0.3s ease-in-out 0s;color:#333333; }
 .slideBox .hd ul li.on{background-color: rgb(222, 72, 101);color: rgb(255, 255, 255);}
-.slideBox .bd{ position:relative; height:100%; z-index:0;   }
-.slideBox .bd img{ width:538px; height:288px; }
-.wx-yh-t-l{ width:718px; }
+.slideBox .bd{ position:relative; height:100%; z-index:0;width:754px;}
+.slideBox .bd img{ width:754px; height:288px; }
+.wx-yh-t-l{ width:754px; }
 .wx-yh-t-r{ width:180px;margin-left:9px; display:inline;border:1px solid #e5e5e5; padding:10px;}
 .brand-list{ width:749px; border-left:1px dotted rgb(230, 230, 230); border-top:1px dotted rgb(230, 230, 230); float:left; overflow:hidden;}
 .wx-yh-b .brand-list li {width: 235px;border-right: 1px dotted rgb(230, 230, 230);border-bottom: 1px dotted rgb(230, 230, 230);padding: 10px 0px 0px 13px;height: 80px;position: relative;overflow: hidden;}

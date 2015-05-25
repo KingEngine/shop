@@ -48,7 +48,7 @@
     </div>
     <div class="l wx-yh">
       <div class="wx-yh-t w l">
-      	<h3>用户登陆</h3>
+      	<h3>---用户登陆</h3>
       	<hr color="red">
      	 <form action="<%=request.getContextPath()%>/login.do" method="post">
 			<input type="hidden" name="nextPath" id="nextPath" value="${nextPath}">
@@ -64,12 +64,27 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="登录" />
+						<input type="submit" style="background: rgba(0, 0, 0, 0) url(<%=request.getContextPath()%>/images/btn_bg.gif) no-repeat scroll 0 0;border-width: 0;color: rgb(255, 255, 255); font-size: 14px;font-weight: 700;height: 25px;width: 111px;  border-color: rgb(102, 102, 102);border-style: solid;" value="登录"/>
 					</td>
 				</tr>
 			</table>
 		</form>
       </div>
+    </div>
+  </div>
+</div>
+<div id="foot" class="w l foot f12" style="margin-top: 10%;">
+  <div class="w1016 c">
+    <div class="w l">
+      <ul class="footnav lili lile w l">
+        <li>网站导航</li>
+      </ul>
+    </div>
+    <div class="w l sx">
+      <ul class="lxnav lili lile l">
+        <li><a href="">关于本站</a></li>
+      </ul>
+      <div class="bq lili lile r"> www.jinyixinghua.com</div>
     </div>
   </div>
 </div>
