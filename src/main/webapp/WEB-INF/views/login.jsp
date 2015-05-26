@@ -16,8 +16,8 @@
   <div class="w l">
     <div class="logo l"><img src="images/logo.gif" alt="返回酷衣轩"></div>
     <div w l>
-    	<a href="<%=request.getContextPath()%>/loginPre.do" target="centerFrame">登陆</a>
-    	<a href="<%=request.getContextPath()%>/register.do" target="centerFrame">注册</a>
+    	<a href="<%=request.getContextPath()%>/loginPre.do" target="_self">登陆</a>
+    	<a href="<%=request.getContextPath()%>/register.do" target="_self">注册</a>
     </div>
   </div>
 </div>

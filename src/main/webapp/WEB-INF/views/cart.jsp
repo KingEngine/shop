@@ -15,8 +15,8 @@
   <div class="w l">
     <div class="logo l"><img src="images/logo.gif" alt="返回酷衣轩"></div>
     <div w l>
-    	<a href="<%=request.getContextPath()%>/loginPre.do" target="centerFrame">登陆</a>
-    	<a href="<%=request.getContextPath()%>/register.do" target="centerFrame">注册</a>
+    	<a href="<%=request.getContextPath()%>/loginPre.do" target="_self">登陆</a>
+    	<a href="<%=request.getContextPath()%>/register.do" target="_self">注册</a>
     </div>
   </div>
 </div>
@@ -72,7 +72,7 @@
 			</tr>
 			<tr bgcolor="#CCCCCC">
 				<td height="23" colspan="5" align="right"><font color="#666666">
-			    <a href="settleCart.do" target="centerFrame">去结算</a>
+			    <a href="settleCart.do" target="_self">去结算</a>
 				</td>
 			</tr>
 		</table>

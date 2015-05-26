@@ -12,6 +12,25 @@
 <%@include file="resource.tag" %>
 <%@include file="tag.tag"%>  
 </head>
+<div class="c w1016">
+  <div class="w l">
+    <div class="logo l"><img src="images/logo.gif" alt="返回酷衣轩"></div>
+    <div w l>
+    	<a href="<%=request.getContextPath()%>/loginPre.do" target="_self">登陆</a>
+    	<a href="<%=request.getContextPath()%>/register.do" target="_self">注册</a>
+    </div>
+  </div>
+</div>
+<div class="w l nav bga bgc">
+  <div class="w1016 c">
+    <ul class="w l j-nav f14 fwb lili lile">
+     <li><a href="<%=request.getContextPath()%>/getCenter.do" target="_self">首页</a><em></em></li>
+      <c:forEach items="${firstMenu}" var="item">
+      		<li><a href="<%=request.getContextPath()%>/getProductList.do?productCategoryId=${item.categoryId}" target="_self">${item.categoryName}</a><em></em></li>
+      </c:forEach>
+    </ul>
+  </div>
+</div>
 <div class="w1016 c">
   <div class="w l">
     <div class="l wx-type">
