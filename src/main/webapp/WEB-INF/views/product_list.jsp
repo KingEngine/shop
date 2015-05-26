@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>网上超市-商品列表</title>
+<title>金义兴华</title>
 <script type="text/javascript" src="js/jquery.pack.js"></script>
 <link href="css/all.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />

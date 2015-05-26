@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>网上超市-foot</title>
+<title>金义兴华</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery.pack.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jQuery.blockUI.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery.SuperSlide.js"></script>

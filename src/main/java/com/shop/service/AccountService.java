@@ -27,7 +27,9 @@ public class AccountService {
 	}
 	
 	public Customer login(Customer customer) throws UnsupportedEncodingException{
-		Customer query = customerDao.selectOne(customer);
+		Customer param = new Customer();
+		param.setCustomerNickname(customer.getCustomerNickname());
+		Customer query = customerDao.selectOne(param);
 		if(null == query){
 			return null;
 		}
