@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.chinaebi</groupId>
-  <artifactId>p2pengine</artifactId>
+  <groupId>com</groupId>
+  <artifactId>shop</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>p2pengine Maven Webapp</name>
@@ -261,7 +261,7 @@
 		</dependency>
     </dependencies>
     <build>
-        <finalName>p2pengine</finalName>
+        <finalName>shop</finalName>
         <resources>
 			<resource>
 				<directory>src/main/java</directory>

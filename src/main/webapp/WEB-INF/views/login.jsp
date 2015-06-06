@@ -50,16 +50,17 @@
       <div class="wx-yh-t w l">
       	<h3>---用户登陆</h3>
       	<hr color="red">
-     	 <form action="<%=request.getContextPath()%>/login.do" method="post">
+     	 <form action="<%=request.getContextPath()%>/login.do" method="post" id="login">
 			<input type="hidden" name="nextPath" id="nextPath" value="${nextPath}">
 			<table>
 				<tr>
 					<td>用户名：</td>
-					<td><input class="easyui-textbox" name="customerNickname" data-options="iconCls:'icon-man'" style="width:200px;"></input></td>
+					<td><input  name="customerNickname" data-options="iconCls:'icon-man'" style="width:200px;"></input></td>
+					<td><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td>登录密码：</td>
-					<td><input class="easyui-textbox" type="password" name="customerPwd"  style="width:200px;"></td>
+					<td><input  type="password" name="customerPwd"  style="width:200px;"></td>
 					<td><font color="red">*</font></td>
 				</tr>
 				<tr>

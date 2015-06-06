@@ -49,41 +49,41 @@
       <div class="wx-yh-t w l">
       	<h3><a>----用户注册</a></h3>
       	<hr color="red">
-     	 <form action="registerSubmit.do" method="post">
+     	 <form action="registerSubmit.do" method="post" id="register">
 			<table align="center" style="margin-left: 50px;">
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">用户名：</td>
-					<td><input class="easyui-textbox" name="customerNickname" style="width: 200px;"></input></td>
+					<td><input name="customerNickname" style="width: 200px;"/></td>
 					<td><font color="red">*</font> 4-20个字符(a-z，A-Z，0-9)</td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">登录密码：</td>
-					<td><input class="easyui-textbox" type="password" name="customerPwd" style="width: 200px;"></td>
+					<td><input  type="password" name="customerPwd"  id="customerPwd"  style="width: 200px;"/></td>
 					<td><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">确认密码：</td>
-					<td><input class="easyui-textbox" type="password" name="customerPwdConfirm" style="width: 200px;"></td>
+					<td><input  type="password" name="customerPwdConfirm" style="width: 200px;"/></td>
 					<td><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">邮箱：</td>
-					<td><input class="easyui-textbox" name="customerEmail" style="width: 200px;"></td>
+					<td><input  name="customerEmail" style="width: 200px;"/></td>
 					<td><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">手机号：</td>
-					<td><input class="easyui-textbox" name="customerPhone" style="width: 200px;"></td>
+					<td><input  name="customerPhone" style="width: 200px;"/></td>
 					<td><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">密码找回问题：</td>
-					<td><input class="easyui-textbox" name="customerPwdQuestion" style="width: 200px;"></td>
+					<td><input  name="customerPwdQuestion" style="width: 200px;"/></td>
 					<td><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">密码找回答案：</td>
-					<td><input class="easyui-textbox" name="customerPwdAnswer" style="width: 200px;"></td>
+					<td><input  name="customerPwdAnswer" style="width: 200px;"/></td>
 					<td><font color="red">*</font></td>
 				</tr>
 				<tr>
