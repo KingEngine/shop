@@ -29,9 +29,27 @@
   </div>
 </div>
 <div class="w1016 c">
-	<h3>商品列表</h3>
-	<hr color="red">
-	<div class="goodlist l">
+	<hr/>
+		<table background="<%=request.getContextPath()%>/images/buystep0.jpg"
+			style="width: 538px;height: 48px;" cellspacing="0" cellpadding="0" border="0" >
+			<tbody>
+				<tr>
+					<td width="193" height="22">&nbsp;</td>
+					<td width="113">
+						<div align="center"><strong><font color="#FFFFFF">浏览商品</font></strong></div>
+					</td>
+					<td width="112">
+						<div align="center">
+							购物车
+						</div>
+					</td>
+					<td width="120">
+						<div align="center">结算</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="goodlist l">
 				<c:if test="${fn:length(products)<=0 }">
 					<center><font style="color: red;font-size: 16px;">对不起,商品还没上架</font></center>
 				</c:if> 
