@@ -47,18 +47,58 @@
     </div>
     <div class="l wx-yh">
       <div class="wx-yh-t w l">
-      	<h3>购物车</h3>
-      	<hr color="red">
-     	 <table width="100%" align="center" cellspacing="1" cellpadding="2" border="0">
+        <!--购物车抬头  -->
+		<table background="<%=request.getContextPath()%>/images/buystep2.jpg"
+			style="width: 538px;height: 48px;margin-top: 5px;" cellspacing="0" cellpadding="0" border="0" >
+			<tbody>
+				<tr>
+					<td width="193" height="22">&nbsp;</td>
+					<td width="113">
+						<div align="center">浏览商品</div>
+					</td>
+					<td width="112">
+						<div align="center">
+							<strong><font color="#FFFFFF">购物车</font></strong>
+						</div>
+					</td>
+					<td width="120">
+						<div align="center">结算</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr color="red">
+		<table cellspacing="0" cellpadding="0" border="0">
+   	 		<tr>
+   	 			<!-- 返回上页  begin -->
+    	 		<td><img width="10" height="36" src="<%=request.getContextPath()%>/images/gwc_6.gif"></td>
+    	 		<td><img width="25" height="36" src="<%=request.getContextPath()%>/images/gwc_8.gif"></td>
+    	 		<td background="<%=request.getContextPath()%>/images/gwc_10.gif">
+    	 				<a href="javascript:window.history.back(-2);">返回上页,继续购物</a>
+    	 		</td>
+    	 		<td><img width="25" height="36" src="<%=request.getContextPath()%>/images/gwc_12.gif"></td>
+    	 		<!-- 返回上页  end -->
+    	 		<td><img src="<%=request.getContextPath()%>/images/gwc_14.gif"></td>
+    	 		<!-- 去结算 begin -->
+    	 		<td><img width="10" height="36" src="<%=request.getContextPath()%>/images/gwc_6.gif"></td>
+    	 		<td><img width="25" height="36" src="<%=request.getContextPath()%>/images/gwc_16.gif"></td>
+    	 		<td background="<%=request.getContextPath()%>/images/gwc_10.gif">
+    	 				<a href=";">去结算</a>
+    	 		</td>
+    	 		<td><img width="25" height="36" src="<%=request.getContextPath()%>/images/gwc_12.gif"></td>
+   	 		  	<!-- 去结算  end -->
+   	 		</tr>
+	     </table>
+     	 <table width="100%" align="center" cellspacing="1" cellpadding="2" border="0" align="center" style="line-height:140%;">
 			<tr bgcolor="#CCCCCC">
-				<td height="23"><font color="#666666"><strong>序号</strong></font></td>
-				<td height="23"><font color="#666666"><strong>商品号</strong></font></td>
-				<td height="23"><font color="#666666"><strong>商品名</strong></font></td>
-				<td height="23"><font color="#666666"><strong>数量</strong></font></td>
-				<td height="23"><font color="#666666"><strong>金额</strong></font></td>
+				<td height="30px;" align="center"><font color="#666666"><strong>序号</strong></font></td>
+				<td height="30px;" align="center"><font color="#666666"><strong>商品号</strong></font></td>
+				<td height="30px;" align="center"><font color="#666666"><strong>商品名</strong></font></td>
+				<td height="30px;" align="center"><font color="#666666"><strong>数量</strong></font></td>
+				<td height="30px;" align="center"><font color="#666666"><strong>金额</strong></font></td>
 			</tr>
 			<c:forEach items="${SHOPPING_CART.cartProducts}" var="item" varStatus="status">
-				<tr bgcolor="#dddddd">
+				<tr bgcolor="#FaFaFa">
 					<td height="25">${status.index + 1}</td>
 					<td height="25">${item.productSN}</td>
 					<td height="25">${item.productName}</td>
@@ -70,13 +110,28 @@
 				<td height="23" colspan="4" align="right"><font color="#666666"><strong>合计:</strong></font></td>
 				<td height="23"><font color="#666666"><strong>${SHOPPING_CART.totalPrice}</strong></font></td>
 			</tr>
-			<tr bgcolor="#CCCCCC">
-				<td height="23" colspan="5" align="right"><font color="#666666">
-			    <a href="settleCart.do" target="_self">去结算</a>
-				</td>
-			</tr>
 		</table>
-      </div>
+		<table width="720" cellspacing="0" cellpadding="0" border="0"
+			align="center">
+			<tbody>
+				<tr bgcolor="#ffffff">
+					<td height="46" align="center" colspan="6">
+					<input
+						type="button"
+						onclick="if(!confirm('确认清空购物车吗?')) return false;location.href='orderpro_del.asp?kind=qingkong';"
+						style="BACKGROUND: url(images/gwc_28.gif) no-repeat; border: 0; width: 101px; height: 29px; CURSOR: hand;"
+						value=" " name="delall"> &nbsp;&nbsp;&nbsp; 
+					<input
+						type="button"
+						onclick="javascript:window.location.href='orderjs.asp';"
+						style="background-image: url(images/gwc_jiesuan.gif); border: 0; width: 101px; height: 29px; CURSOR: hand;"
+						value=" " name="df"> &nbsp;&nbsp;&nbsp; &nbsp;
+					<input
+						type="hidden" name="maxi" value="1"></td>
+				</tr>
+			</tbody>
+		</table>
+			</div>
     </div>
   </div>
 </div>

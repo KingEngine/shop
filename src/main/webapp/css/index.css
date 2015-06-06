@@ -8,14 +8,14 @@
 
 
 /* Ê×Ò³»ÃµÆÆ¬ÇÐ»» */
-.slideBox{ width:754px; height:288px; overflow:hidden; position:relative; }
+.slideBox{ width:538px; height:288px; overflow:hidden; position:relative; }
 .slideBox .hd{ height:20px; overflow:hidden; position:absolute; right:10px; bottom:10px; z-index:1; }
 .slideBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
 .slideBox .hd ul li{ float:left; margin-right:5px;  width:20px; height:20px; line-height:20px; text-align:center; cursor: pointer; overflow: hidden;background: none repeat scroll 0% 0% rgb(255, 255, 255);display: inline;border-radius: 12px 12px 12px 12px;transition: all 0.3s ease-in-out 0s;color:#333333; }
 .slideBox .hd ul li.on{background-color: rgb(222, 72, 101);color: rgb(255, 255, 255);}
-.slideBox .bd{ position:relative; height:100%; z-index:0;width:754px;}
-.slideBox .bd img{ width:754px; height:288px; }
-.wx-yh-t-l{ width:754px; }
+.slideBox .bd{ position:relative; height:100%; z-index:0;   }
+.slideBox .bd img{ width:538px; height:288px; }
+.wx-yh-t-l{ width:538px; }
 .wx-yh-t-r{ width:180px;margin-left:9px; display:inline;border:1px solid #e5e5e5; padding:10px;}
 .brand-list{ width:749px; border-left:1px dotted rgb(230, 230, 230); border-top:1px dotted rgb(230, 230, 230); float:left; overflow:hidden;}
 .wx-yh-b .brand-list li {width: 235px;border-right: 1px dotted rgb(230, 230, 230);border-bottom: 1px dotted rgb(230, 230, 230);padding: 10px 0px 0px 13px;height: 80px;position: relative;overflow: hidden;}
@@ -24,7 +24,7 @@
 .cattitle { height:22px; line-height:22px; padding:5px 0;}
 .cattitle h2{ font-size:18px; font-family:'ºÚÌå'; font-weight:100; color:#333333; padding:0 5px;}
 .cattitle ul li{ margin:0 10px;}
-.hot{background:#fff5f7; width:999px; padding:10px;}
+.hot{background:#fff5f7; width:996px; padding:10px;}
 .hot_bq ul li{ margin:10px 5px 0 5px;}
 .hot_bq{ height:258px;}
 .hot_l{ width:210px; background:#ffffff; padding:10px;}
@@ -45,9 +45,8 @@
 .leftLoop .bd{ padding:10px 10px 0px 10px;   }
 .leftLoop .bd ul{ overflow:hidden; zoom:1; }
 .leftLoop .bd ul li{  float:left; width:100%;  overflow:hidden;  }
-.leftLoop .bd ul li dl dd{ width:133px; height:210px; float:left;margin:5px 25px 5px 26px;_display:inline; }
+.leftLoop .bd ul li dl dd{ width:133px; height:160px; float:left;margin:5px 25px 5px 26px;_display:inline; }
 .leftLoop .bd ul li dl dd .title{ line-height:30px;}
-.leftLoop .bd ul li dl dd .price{ color: red;font-size: 16px;}
 .leftLoop .bd ul li .pic img{width:133px; height:133px;}
 .glist-info dt{ width:240px; height:400px;}
 .glist-info dd{ width:774px;border:1px solid #e5e6e8; height:398px;}

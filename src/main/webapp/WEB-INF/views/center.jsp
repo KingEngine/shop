@@ -13,9 +13,9 @@
 <div class="c w1016">
   <div class="w l">
     <div class="logo l"><img src="images/logo.gif" alt="返回酷衣轩"></div>
-    <div w l>
-    	<a href="<%=request.getContextPath()%>/loginPre.do" target="_self">登陆</a>
-    	<a href="<%=request.getContextPath()%>/register.do" target="_self">注册</a>
+    <div style="margin-top: 47px;margin-left: 947px;">
+    	<a href="<%=request.getContextPath()%>/loginPre.do" target="centerFrame"><font color="#FF6600">登陆</font></a>
+    	<a href="<%=request.getContextPath()%>/register.do" target="centerFrame"><font color="#FF6600">注册</font></a>
     </div>
   </div>
 </div>
@@ -69,6 +69,14 @@
               </div>
             </div>
             <script type="text/javascript">jQuery(".slideBox").slide( { mainCell:".bd ul",effect:"top",autoPlay:true} );</script> 
+        </div>
+        <div class="wx-yh-t-r l">
+        	<div class="yh-1 l">
+            	<a href=""><img src="images/ad_top.jpg" border="0" width="180"></a>
+            </div>
+            <div class="yh-2 l">
+            	<img src="images/ad_hd.jpg" border="0" width="180" height="160">
+            </div>
         </div>
       </div>
     </div>
