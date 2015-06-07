@@ -1,15 +1,48 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <title>金义兴华</title>
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery.pack.js"></script>
+<head><script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery.pack.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jQuery.blockUI.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery.SuperSlide.js"></script>
 <link href="<%=request.getContextPath()%>/css/all.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/css/index.css" rel="stylesheet" type="text/css" />
 <%@include file="resource.tag" %>
 <%@include file="tag.tag"%>  
+
+<script type="text/javascript">
+	/**
+	 * 删除某一行
+	 */
+	function deleteOne(productSN){
+		//ajax请求
+		$.ajax({
+			  type: 'POST',
+			  url: "cartDelete.do",
+			  data: {productSN:productSN},
+			  success: function(data){
+				  $("#"+productSN).remove();
+				  $("#total").html(data);
+			  }
+			});
+	}
+	function addProduct(productSN,count){
+		console.log(productSN);
+		console.log(count);
+		//ajax请求
+		$.ajax({
+			  type: 'POST',
+			  url: "ajaxAddCart.do",
+			  data: {productSN:productSN,productCount:count},
+			  success: function(data){
+				  $("#total").html(data);
+			  }
+			});
+	}
+
+</script>
 </head>
 <div class="c w1016">
   <div class="w l">
@@ -89,26 +122,36 @@
    	 		  	<!-- 去结算  end -->
    	 		</tr>
 	     </table>
-     	 <table width="100%" align="center" cellspacing="1" cellpadding="2" border="0" align="center" style="line-height:140%;">
+     	 <table width="100%" align="center" cellspacing="1" cellpadding="2" border="0" align="center" style="line-height:140%;" id="cartTable">
 			<tr bgcolor="#CCCCCC">
 				<td height="30px;" align="center"><font color="#666666"><strong>序号</strong></font></td>
 				<td height="30px;" align="center"><font color="#666666"><strong>商品号</strong></font></td>
 				<td height="30px;" align="center"><font color="#666666"><strong>商品名</strong></font></td>
+				<td height="30px;" align="center"><font color="#666666"><strong>单价</strong></font></td>
 				<td height="30px;" align="center"><font color="#666666"><strong>数量</strong></font></td>
 				<td height="30px;" align="center"><font color="#666666"><strong>金额</strong></font></td>
+				<td height="30px;" align="center"><font color="#666666"><strong>操作</strong></font></td>
 			</tr>
 			<c:forEach items="${SHOPPING_CART.cartProducts}" var="item" varStatus="status">
-				<tr bgcolor="#FaFaFa">
-					<td height="25">${status.index + 1}</td>
-					<td height="25">${item.productSN}</td>
-					<td height="25">${item.productName}</td>
-					<td height="25">${item.productCount}</td>
-					<td height="25">${item.productPrice}</td>
+				<tr bgcolor="#FaFaFa" id="${item.productSN}">
+					<td height="25" align="center">${status.index + 1}</td>
+					<td height="25" align="center">${item.productSN}</td>
+					<td height="25" align="center">${item.productName}</td>
+					<td height="25" align="center">${item.unitPrict}</td>
+					<td height="25" align="center">
+						<input type="text" value="${item.productCount}" style="width: 29px;" onkeydown="addProduct('${item.productSN}',this.value);"/>
+					</td>
+					<td height="25" align="center" id="${item.productSN}_productPrice">${item.productPrice}</td>
+					<td height="25" align="center">
+						<a href="javascript:void(0);" onclick="deleteOne('${item.productSN}');">删除</a>
+					</td>
 				</tr>
 			</c:forEach>
 			<tr bgcolor="#CCCCCC">
-				<td height="23" colspan="4" align="right"><font color="#666666"><strong>合计:</strong></font></td>
-				<td height="23"><font color="#666666"><strong>${SHOPPING_CART.totalPrice}</strong></font></td>
+				<td height="23" colspan="5" align="right"><font color="#666666"><strong>合计:</strong></font></td>
+				<td height="23" colspan="2" align="center" id="total"><font color="#666666"><strong>
+						${SHOPPING_CART.totalPrice}</strong></font>
+				</td>
 			</tr>
 		</table>
 		<table width="720" cellspacing="0" cellpadding="0" border="0"
@@ -119,12 +162,12 @@
 					<input
 						type="button"
 						onclick="if(!confirm('确认清空购物车吗?')) return false;location.href='orderpro_del.asp?kind=qingkong';"
-						style="BACKGROUND: url(images/gwc_28.gif) no-repeat; border: 0; width: 101px; height: 29px; CURSOR: hand;"
+						style="BACKGROUND: url(images/gwc_28.gif) no-repeat; border: 0; width: 101px; height: 29px; CURSOR: pointer;"
 						value=" " name="delall"> &nbsp;&nbsp;&nbsp; 
 					<input
 						type="button"
 						onclick="javascript:window.location.href='orderjs.asp';"
-						style="background-image: url(images/gwc_jiesuan.gif); border: 0; width: 101px; height: 29px; CURSOR: hand;"
+						style="background-image: url(images/gwc_jiesuan.gif); border: 0; width: 101px; height: 29px; CURSOR: pointer;"
 						value=" " name="df"> &nbsp;&nbsp;&nbsp; &nbsp;
 					<input
 						type="hidden" name="maxi" value="1"></td>

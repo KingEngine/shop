@@ -31,6 +31,9 @@ public class Products implements java.io.Serializable {
 	}
 
 	public String getProductSerialNumber() {
+		if(null!=productSerialNumber){
+			return productSerialNumber.trim();
+		}
 		return productSerialNumber;
 	}
 

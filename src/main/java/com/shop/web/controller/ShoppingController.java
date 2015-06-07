@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shop.bean.Cart;
 import com.shop.bean.CartProducts;
@@ -37,6 +38,7 @@ public class ShoppingController {
 		cartProduct.setProductName(product.getProductName());
 		cartProduct.setProductPrice(new BigDecimal(product.getProductCurrentPrice()));
 		cartProduct.setProductSN(product.getProductSerialNumber());
+		cartProduct.setUnitPrict(new BigDecimal(product.getProductCurrentPrice()));
 		cartProduct.setProductCount(1);
 		if(null==obj){
 			List<CartProducts> cartProducts = new ArrayList<CartProducts>();
@@ -66,11 +68,69 @@ public class ShoppingController {
 		session.setAttribute(Constants.SHOPPING_CART, cart);
 		return "cart";
 	}
+	//删除购物车
+	@RequestMapping(value = "cartDelete.do", method = { RequestMethod.GET,RequestMethod.POST })
+	@ResponseBody
+	public String cartDelete(@RequestParam("productSN")String productSN,HttpSession session){
+		List<CartProducts> removeList = new ArrayList<CartProducts>();
+		Cart cart = (Cart) session.getAttribute(Constants.SHOPPING_CART);
+		for(CartProducts product:cart.getCartProducts()){
+			if(StringUtils.equals(productSN, product.getProductSN())){
+				removeList.add(product);
+			}
+		}
+		cart.getCartProducts().removeAll(removeList);
+		//计算总价
+		cart.setTotalPrice(new BigDecimal("0.00"));
+		for(CartProducts o:cart.getCartProducts()){
+			cart.setTotalPrice(cart.getTotalPrice().add(o.getProductPrice()));
+		}
+		session.removeAttribute(Constants.SHOPPING_CART);
+		session.setAttribute(Constants.SHOPPING_CART, cart);
+		return cart.getTotalPrice()+"";
+	}
+	
+	//添加购物车
+	@RequestMapping(value = "ajaxAddCart.do", method = { RequestMethod.GET,RequestMethod.POST })
+	@ResponseBody
+	public String ajaxAddCart(@RequestParam("productSN")String productSN,@RequestParam("productCount") Integer productCount,HttpSession session){
+		Cart cart = (Cart) session.getAttribute(Constants.SHOPPING_CART);
+		CartProducts clone=null;
+		for(CartProducts product:cart.getCartProducts()){
+			if(StringUtils.equals(productSN, product.getProductSN())){
+				clone = product;
+				break;
+			}
+		}
+		clone.setProductCount(productCount);
+		clone.setProductPrice(clone.getUnitPrict().multiply(new BigDecimal(productCount)));
+		List<CartProducts> deletList = new ArrayList<CartProducts>();
+		for(CartProducts product:cart.getCartProducts()){
+			if(StringUtils.equals(productSN, product.getProductSN())){
+				deletList.add(product);
+			}
+		}
+		cart.getCartProducts().removeAll(deletList);
+		//计算总价
+		cart.setTotalPrice(new BigDecimal("0.00"));
+		for(CartProducts o:cart.getCartProducts()){
+			cart.setTotalPrice(cart.getTotalPrice().add(o.getProductPrice()));
+		}
+		session.removeAttribute(Constants.SHOPPING_CART);
+		session.setAttribute(Constants.SHOPPING_CART, cart);
+		return cart.getTotalPrice()+"";
+	}
+	
 	//查询购物车
 	@RequestMapping(value = "getCartPage.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getCartPage(){
 		return "cart";
 	}
+	
+	
+	
+	
+	
 	//查看商品列表
 	@RequestMapping(value = "getProductList.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getProductList(@RequestParam(value="productCategoryId",required=false)String productCategoryId,Model model) {

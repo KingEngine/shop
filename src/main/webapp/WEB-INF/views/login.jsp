@@ -48,7 +48,7 @@
     </div>
     <div class="l wx-yh">
       <div class="wx-yh-t w l">
-      	<h3>---用户登陆</h3>
+      	<img src="<%=request.getContextPath()%>/images/login_title.gif">
       	<hr color="red">
      	 <form action="<%=request.getContextPath()%>/login.do" method="post" id="login">
 			<input type="hidden" name="nextPath" id="nextPath" value="${nextPath}">
