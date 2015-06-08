@@ -37,7 +37,9 @@
 			  url: "ajaxAddCart.do",
 			  data: {productSN:productSN,productCount:count},
 			  success: function(data){
-				  $("#total").html(data);
+				  var array=data.split(",");
+				  $("#total").html(array[0]);
+				  $("#"+productSN+"_productPrice").html(array[1]);
 			  }
 			});
 	}
@@ -139,7 +141,7 @@
 					<td height="25" align="center">${item.productName}</td>
 					<td height="25" align="center">${item.unitPrict}</td>
 					<td height="25" align="center">
-						<input type="text" value="${item.productCount}" style="width: 29px;" onkeydown="addProduct('${item.productSN}',this.value);"/>
+						<input type="text" value="${item.productCount}" style="width: 29px;" onblur="addProduct('${item.productSN}',this.value);"/>
 					</td>
 					<td height="25" align="center" id="${item.productSN}_productPrice">${item.productPrice}</td>
 					<td height="25" align="center">

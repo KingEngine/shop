@@ -93,7 +93,8 @@ public class ShoppingController {
 	//添加购物车
 	@RequestMapping(value = "ajaxAddCart.do", method = { RequestMethod.GET,RequestMethod.POST })
 	@ResponseBody
-	public String ajaxAddCart(@RequestParam("productSN")String productSN,@RequestParam("productCount") Integer productCount,HttpSession session){
+	public String ajaxAddCart(@RequestParam("productSN")String productSN,@RequestParam("productCount") String counter,HttpSession session){
+        Integer productCount = Integer.parseInt(counter);
 		Cart cart = (Cart) session.getAttribute(Constants.SHOPPING_CART);
 		CartProducts clone=null;
 		for(CartProducts product:cart.getCartProducts()){
@@ -111,6 +112,7 @@ public class ShoppingController {
 			}
 		}
 		cart.getCartProducts().removeAll(deletList);
+		cart.getCartProducts().add(clone);
 		//计算总价
 		cart.setTotalPrice(new BigDecimal("0.00"));
 		for(CartProducts o:cart.getCartProducts()){
@@ -118,12 +120,18 @@ public class ShoppingController {
 		}
 		session.removeAttribute(Constants.SHOPPING_CART);
 		session.setAttribute(Constants.SHOPPING_CART, cart);
-		return cart.getTotalPrice()+"";
+		return cart.getTotalPrice()+","+clone.getProductPrice();
 	}
 	
 	//查询购物车
 	@RequestMapping(value = "getCartPage.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getCartPage(){
+		return "cart";
+	}
+	
+	//清空购物车
+	@RequestMapping(value = "clearCart.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String clearCart(){
 		return "cart";
 	}
 	
