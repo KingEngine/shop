@@ -14,7 +14,7 @@
 <div class="c w1016">
   <div class="w l">
     <div class="logo l"><img src="images/logo.gif" alt="返回酷衣轩"></div>
-    <div w l>
+    <div class="topnav">
     	<a href="<%=request.getContextPath()%>/loginPre.do" target="_self">登陆</a>
     	<a href="<%=request.getContextPath()%>/register.do" target="_self">注册</a>
     </div>
@@ -47,48 +47,43 @@
     </div>
     <div class="l wx-yh">
       <div class="wx-yh-t w l">
-      	<h3><a>----用户注册</a></h3>
+      	<h3><a>用户注册</a></h3>
       	<hr color="red">
      	 <form action="registerSubmit.do" method="post" id="register">
-			<table align="center" style="margin-left: 50px;">
+			<table align="center" style="margin-left: 50px;" width="100%">
 				<tr>
-					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">用户名：</td>
-					<td><input name="customerNickname" style="width: 200px;"/></td>
-					<td><font color="red">*</font> 4-20个字符(a-z，A-Z，0-9)</td>
+					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;width:120px;">用户名：</td>
+					<td><input name="customerNickname" style="width: 200px;"/><font color="red">* &nbsp;</font> 4-20个字符(a-z，A-Z，0-9) &nbsp;</td>
+				
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">登录密码：</td>
-					<td><input  type="password" name="customerPwd"  id="customerPwd"  style="width: 200px;"/></td>
-					<td><font color="red">*</font></td>
+					<td><input  type="password" name="customerPwd"  id="customerPwd"  style="width: 200px;"/><font color="red">* &nbsp;</font></td>
+					
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">确认密码：</td>
-					<td><input  type="password" name="customerPwdConfirm" style="width: 200px;"/></td>
-					<td><font color="red">*</font></td>
+					<td><input  type="password" name="customerPwdConfirm" style="width: 200px;"/><font color="red">* &nbsp;</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">邮箱：</td>
-					<td><input  name="customerEmail" style="width: 200px;"/></td>
-					<td><font color="red">*</font></td>
+					<td><input  name="customerEmail" style="width: 200px;"/><font color="red">* &nbsp;</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">手机号：</td>
-					<td><input  name="customerPhone" style="width: 200px;"/></td>
-					<td><font color="red">*</font></td>
+					<td><input  name="customerPhone" style="width: 200px;"/><font color="red">* &nbsp;</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">密码找回问题：</td>
-					<td><input  name="customerPwdQuestion" style="width: 200px;"/></td>
-					<td><font color="red">*</font></td>
+					<td><input  name="customerPwdQuestion" style="width: 200px;"/><font color="red">* &nbsp;</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">密码找回答案：</td>
-					<td><input  name="customerPwdAnswer" style="width: 200px;"/></td>
-					<td><font color="red">*</font></td>
+					<td><input  name="customerPwdAnswer" style="width: 200px;"/><font color="red">* &nbsp;</font></td>
 				</tr>
 				<tr>
 					<td style="color: rgb(45, 45, 45);font-size: 12px;line-height: 140%;">注册声明</td>
-					<td colspan="2">
+					<td>
 						<textarea readonly="" rows="8" cols="68" name="textarea">请你先阅读我们的注册声明，如果同意，请进行用户注册。 
 1．网上商城网站服务条款的确认和接纳
 网上商城网站各项服务的所有权和运作权归网上商城拥有。
@@ -141,7 +136,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="3">
+					<td></td>
+					<td colspan="2">
 						<input type="submit" style="background: rgba(0, 0, 0, 0) url(<%=request.getContextPath()%>/images/regist_sub.jpg) no-repeat scroll 0 0;border-width: 0;height: 25px;text-decoration: underline; width:111px;" value=""/>
 					</td>
 				</tr>

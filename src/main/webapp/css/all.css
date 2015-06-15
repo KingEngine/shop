@@ -90,3 +90,14 @@ a:hover{ color:#ff699e;}
 .footnav,.lxnav,.bq{ height:22px; padding:10px 0; line-height:22px;}
 .footnav li,.lxnav li{ margin:0 5px;}
 .sx{ padding-top:2px; background:url(../images/dxbg.gif) no-repeat;}
+
+
+#register td,#login td{ padding:10px 0;}
+#register td input,#login td input{ margin-right:10px;float: left;}
+#register td label,#login td label{ margin-right:10px;}
+.wx-yh-t h3{padding: 10px 10px 5px;}
+.wx-yh-t h3 a{color: rgb(254, 101, 157);}
+
+.topnav{text-align:right;padding-top:5px;}
+.topnav a{margin-left:5px;}
+.topnav a:hover{ text-decoration:underline;}

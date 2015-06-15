@@ -27,6 +27,9 @@ $(function(){
 			customerPhone:{required:"请输入手机号"},
 			customerPwdQuestion:{required:"请输入密码找回问题"},
 			customerPwdAnswer:{required:"请输入密码找回答案"}
+		},
+		errorPlacement: function(error, element) {
+		    error.appendTo(element.parent());
 		}
 	});
 	
@@ -39,6 +42,9 @@ $(function(){
 		messages : {
 			customerNickname : "请输入用户名",
 			customerPwd : "请输入登录密码"
+		},
+		errorPlacement: function(error, element) {
+		    error.appendTo(element.parent());
 		}
 	});
 });

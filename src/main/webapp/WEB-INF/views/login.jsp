@@ -15,7 +15,7 @@
 <div class="c w1016">
   <div class="w l">
     <div class="logo l"><img src="images/logo.gif" alt="返回酷衣轩"></div>
-    <div w l>
+    <div class="topnav">
     	<a href="<%=request.getContextPath()%>/loginPre.do" target="_self">登陆</a>
     	<a href="<%=request.getContextPath()%>/register.do" target="_self">注册</a>
     </div>
@@ -52,19 +52,18 @@
       	<hr color="red">
      	 <form action="<%=request.getContextPath()%>/login.do" method="post" id="login">
 			<input type="hidden" name="nextPath" id="nextPath" value="${nextPath}">
-			<table>
+			<table style="margin: 50px 0px 0px 220px;">
 				<tr>
 					<td>用户名：</td>
-					<td><input  name="customerNickname" data-options="iconCls:'icon-man'" style="width:200px;"></input></td>
-					<td><font color="red">*</font></td>
+					<td><input  name="customerNickname" data-options="iconCls:'icon-man'" style="width:200px;"></input><font color="red">* &nbsp;</font></td>
 				</tr>
 				<tr>
 					<td>登录密码：</td>
-					<td><input  type="password" name="customerPwd"  style="width:200px;"></td>
-					<td><font color="red">*</font></td>
+					<td><input  type="password" name="customerPwd"  style="width:200px;"><font color="red">* &nbsp;</font></td>
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td></td>
+					<td>
 						<input type="submit" style="background: rgba(0, 0, 0, 0) url(<%=request.getContextPath()%>/images/btn_bg.gif) no-repeat scroll 0 0;border-width: 0;color: rgb(255, 255, 255); font-size: 14px;font-weight: 700;height: 25px;width: 111px;  border-color: rgb(102, 102, 102);border-style: solid;" value="登录"/>
 					</td>
 				</tr>
