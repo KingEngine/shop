@@ -9,7 +9,7 @@
 <link href="<%=request.getContextPath()%>/css/all.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/css/index.css" rel="stylesheet" type="text/css" />
 </head>
-<div id="foot" class="w l foot f12">
+<div id="foot" class="w l foot f12" style="margin-top: 12%;">
   <div class="w1016 c">
     <div class="w l">
       <ul class="footnav lili lile w l">
@@ -17,10 +17,9 @@
       </ul>
     </div>
     <div class="w l sx">
-      <ul class="lxnav lili lile l">
-        <li><a href="">关于本站</a></li>
-      </ul>
-      <div class="bq lili lile r"> www.jinyixinghua.com</div>
+        <span style="float: left;height: 21px;line-height: 21px;margin-left: 50%;">
+        		<a href="http://www.miitbeian.gov.cn/" target="_blank"><font style="color: rgb(156,156,156);font-family:'microsoft yahei';font-size: 12px;">京ICP备：15030907号</font></a>
+   		</span>
     </div>
   </div>
 </div>
