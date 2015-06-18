@@ -2,6 +2,7 @@ package com.shop.web.controller;
 
 import java.io.UnsupportedEncodingException;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
@@ -31,6 +32,12 @@ public class AccountController {
 	public String loginPre(@RequestParam(value="nextPath",required=false)String nextPath,ModelMap model) {
 		model.put("nextPath", nextPath);
 		return "login";
+	}
+	
+	@RequestMapping(value = "exit.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String exit(HttpSession session) {
+		session.invalidate();
+		return "redirect:getCenter.do";
 	}
 	
 	@RequestMapping(value = "login.do", method = { RequestMethod.GET,RequestMethod.POST })

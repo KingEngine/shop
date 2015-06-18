@@ -14,9 +14,17 @@
 <div class="c w1016">
   <div class="w l">
     <div class="logo l"><img src="images/logo.gif" alt="返回酷衣轩"></div>
-    <div w l>
-    	<a href="<%=request.getContextPath()%>/loginPre.do" target="_self">登陆</a>
-    	<a href="<%=request.getContextPath()%>/register.do" target="_self">注册</a>
+    <div style="margin-top: 47px;margin-left: 800px;">
+    	<c:choose>
+    		<c:when test="${customer!=null}">
+    			<font color="#FF6600">欢迎您,尊敬的${customer.customerNickname}</font>
+    			<a href="<%=request.getContextPath()%>/exit.do">退出</a>
+    		</c:when>
+    		<c:otherwise>
+	    		<a href="<%=request.getContextPath()%>/loginPre.do" target="centerFrame"><font color="#FF6600">登陆</font></a>
+		    	<a href="<%=request.getContextPath()%>/register.do" target="centerFrame"><font color="#FF6600">注册</font></a>
+    		</c:otherwise>
+    	</c:choose>
     </div>
   </div>
 </div>

@@ -33,7 +33,7 @@ public class AccountService {
 		if(null == query){
 			return null;
 		}
-		if(StringUtils.equals(query.getCustomerPwd(), SecurityUtil.encryptMD5(customer.getCustomerPwd()))){
+		if(!StringUtils.equals(query.getCustomerPwd(), SecurityUtil.encryptMD5(customer.getCustomerPwd()))){
 			return null;
 		}
 		return query;
