@@ -22,8 +22,8 @@
     			<a href="<%=request.getContextPath()%>/exit.do">退出</a>
     		</c:when>
     		<c:otherwise>
-	    		<a href="<%=request.getContextPath()%>/loginPre.do" target="centerFrame"><font color="#FF6600">登陆</font></a>
-		    	<a href="<%=request.getContextPath()%>/register.do" target="centerFrame"><font color="#FF6600">注册</font></a>
+	    		<a href="<%=request.getContextPath()%>/loginPre.do"><font color="#FF6600">登陆</font></a>
+		    	<a href="<%=request.getContextPath()%>/register.do"><font color="#FF6600">注册</font></a>
     		</c:otherwise>
     	</c:choose>
     </div>
@@ -54,33 +54,32 @@
       	</c:forEach>
       </dl>
     </div>
-    <div class="l wx-yh">
-      <div class="wx-yh-t w l">
-      	<h3>填写地址</h3>
-      	<hr color="red">
-     	 <form action="<%=request.getContextPath()%>/fillContact.do" method="post">
-			<table>
-				<tr>
-					<td>手机号：</td>
-					<td><input class="easyui-textbox" name="customerPhone" data-options="iconCls:'icon-man'" style="width:200px;"></input></td>
-				</tr>
-				<tr>
-					<td>邮编：</td>
-					<td><input class="easyui-textbox" name="customerAddress"  style="width:200px;"></td>
-				</tr>
-				<tr>
-					<td>地址：</td>
-					<td><input class="easyui-textbox" name="customerPostalCode"  style="width:200px;"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="submit" value="提交" />
-					</td>
-				</tr>
-			</table>
-		</form>
-      </div>
+    <!-- 结算页面 beign -->
+    <div style="background-color: #fff;border: 1px solid #f0f0f0;margin-left:267px;">
+    	<!-- 收款人信息 begin -->
+    	<div style="color: #333;height: 40px;line-height: 40px;">
+    		<font style="margin-left: 0px;font-size: 16px;font-weight: bolder;">收款人信息</font>
+    		<font style="margin-left: 100px;"></font>
+        </div>
+        <!-- 收款人信息 end -->
+        <div style="border-bottom: 1px solid #e6e6e6;height: 0;margin-bottom: 10px;"></div>
+        <!-- 结算方式  begin -->
+        <div style="color: #333;height: 40px;line-height: 40px;">
+    		<font style="margin-left: 0px;font-size: 16px;font-weight: bolder;">支付方式</font>
+        </div>
+        <div style="border: 2px solid #e4393c;padding: 4px;23px;width: 56px;">
+        	在线支付
+        </div>
+        <!-- 结算方式  end -->
+        <div style="border-bottom: 1px solid #e6e6e6;height: 0;margin-bottom: 10px;"></div>
+        <!-- 商品列表 begin -->
+        <div style="color: #333;height: 40px;line-height: 40px;">
+    		<font style="margin-left: 0px;font-size: 16px;font-weight: bolder;">商品列表</font>
+        </div>
+         <!-- 商品列表 end -->
+     </div>
+     <!-- 结算页面 end -->
     </div>
   </div>
-</div>
+
 </html>

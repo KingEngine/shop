@@ -146,13 +146,19 @@ public class ShoppingController {
 		model.addAttribute("products", products);
 		return "product_list";
 	}
-	//去结算
-	@RequestMapping(value = "settleCart.do", method = { RequestMethod.GET,RequestMethod.POST })
+	//填写联系人
+	@RequestMapping(value = "fillContactPre.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String fillContact(HttpSession session){
 		Customer customer = (Customer) session.getAttribute(Constants.CUSTOMER);
 		if(customer==null){
 			return "redirect:loginPre.do?nextPath=fill_contact";
 		}
 		return "fill_contact";
+	}
+	//填写联系人
+	@RequestMapping(value = "gotoPayPre.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String gotoPayPre(HttpSession session){
+		
+		return null;
 	}
 }

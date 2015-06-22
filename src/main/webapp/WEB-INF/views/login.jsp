@@ -22,8 +22,8 @@
     			<a href="<%=request.getContextPath()%>/exit.do">退出</a>
     		</c:when>
     		<c:otherwise>
-	    		<a href="<%=request.getContextPath()%>/loginPre.do" target="centerFrame"><font color="#FF6600">登陆</font></a>
-		    	<a href="<%=request.getContextPath()%>/register.do" target="centerFrame"><font color="#FF6600">注册</font></a>
+	    		<a href="<%=request.getContextPath()%>/loginPre.do"><font color="#FF6600">登陆</font></a>
+		    	<a href="<%=request.getContextPath()%>/register.do"><font color="#FF6600">注册</font></a>
     		</c:otherwise>
     	</c:choose>
     </div>

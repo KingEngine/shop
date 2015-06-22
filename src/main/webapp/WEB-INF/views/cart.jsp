@@ -29,8 +29,6 @@
 			});
 	}
 	function addProduct(productSN,count){
-		console.log(productSN);
-		console.log(count);
 		//ajax请求
 		$.ajax({
 			  type: 'POST',
@@ -56,8 +54,8 @@
     			<a href="<%=request.getContextPath()%>/exit.do">退出</a>
     		</c:when>
     		<c:otherwise>
-	    		<a href="<%=request.getContextPath()%>/loginPre.do" target="centerFrame"><font color="#FF6600">登陆</font></a>
-		    	<a href="<%=request.getContextPath()%>/register.do" target="centerFrame"><font color="#FF6600">注册</font></a>
+	    		<a href="<%=request.getContextPath()%>/loginPre.do"><font color="#FF6600">登陆</font></a>
+		    	<a href="<%=request.getContextPath()%>/register.do"><font color="#FF6600">注册</font></a>
     		</c:otherwise>
     	</c:choose>
     </div>
@@ -176,11 +174,10 @@
 						value=" " name="delall"> &nbsp;&nbsp;&nbsp; 
 					<input
 						type="button"
-						onclick="javascript:window.location.href='orderjs.asp';"
+						onclick="javascript:window.location.href='<%=request.getContextPath()%>/fillContactPre.do '"
 						style="background-image: url(images/gwc_jiesuan.gif); border: 0; width: 101px; height: 29px; CURSOR: pointer;"
-						value=" " name="df"> &nbsp;&nbsp;&nbsp; &nbsp;
-					<input
-						type="hidden" name="maxi" value="1"></td>
+					> &nbsp;&nbsp;&nbsp; &nbsp;
+					</td>
 				</tr>
 			</tbody>
 		</table>
