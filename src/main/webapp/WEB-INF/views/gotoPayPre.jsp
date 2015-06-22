@@ -55,50 +55,27 @@
       </dl>
     </div>
     <!-- 结算页面 beign -->
-    <form action="<%=request.getContextPath()%>/gotoPayPre.do" method="post" target="_blank">
-    <div style="background-color: #fff;border: 1px solid #f0f0f0;margin-left:267px;">
+    <form action="https://95epay.cn/sslpayment" method="post">
+		<input type="hidden" name="MerNo" value="${MerNo}" /> 
+		<input type="hidden" name="BillNo" value="${BillNo}" /> 
+		<input type="hidden" name="Amount" value="${Amount}" />
+		<input type="hidden" name="PaymentType" value="${PaymentType}" /> 
+		<input type="hidden" name="PayType" value="${PayType}"> 
+		<input type="hidden" name="ReturnURL" value="${ReturnURL}" /> 
+		<input type="hidden" name="NotifyURL" value="${NotifyURL}" /> 
+		<input type="hidden" name="MD5info" value="${MD5info}" /> 
+		<input type="hidden" name="MerRemark" value="${MerRemark}" />
+		<input type="hidden" name="products" value="${Products}" />
+	  <div style="background-color: #fff;border: 1px solid #f0f0f0;margin-left:267px;">
     	<!-- 收款人信息 begin -->
     	<div style="color: #333;height: 40px;line-height: 40px;">
-    		<font style="margin-left: 0px;font-size: 16px;font-weight: bolder;">收款人信息</font>
-    		<font style="margin-left: 100px;"></font>
+    		<font style="margin-left: 0px;font-size: 16px;font-weight: bolder;">订单已提交,请尽快支付</font>
         </div>
-        <!-- 收款人信息 end -->
-        <div style="border-bottom: 1px solid #e6e6e6;height: 0;margin-bottom: 10px;"></div>
-        <!-- 结算方式  begin -->
         <div style="color: #333;height: 40px;line-height: 40px;">
-    		<font style="margin-left: 0px;font-size: 16px;font-weight: bolder;">支付方式</font>
-        </div>
-        <div style="border: 2px solid #e4393c;padding: 4px;23px;width: 56px;">
-        	在线支付
-        </div>
-        <!-- 结算方式  end -->
-        <div style="border-bottom: 1px solid #e6e6e6;height: 0;margin-bottom: 10px;"></div>
-        <!-- 商品列表 begin -->
-        <div style="color: #333;height: 40px;line-height: 40px;">
-    		<font style="margin-left: 0px;font-size: 16px;font-weight: bolder;">商品列表</font>
-        </div>
-        <table width="100%" align="center" cellspacing="1" cellpadding="2" border="0" align="center" style="line-height:140%;" id="cartTable">
-        <c:forEach items="${SHOPPING_CART.cartProducts}" var="item" varStatus="status">
-				<tr bgcolor="#FaFaFa" id="${item.productSN}">
-					<td height="25" align="center">${status.index + 1}</td>
-					<td height="25" align="center">${item.productSN}</td>
-					<td height="25" align="center">${item.productName}</td>
-					<td height="25" align="center">${item.unitPrict}</td>
-					<td height="25" align="center">
-						x${item.productCount}
-					</td>
-					<td height="25" align="center" id="${item.productSN}_productPrice">${item.productPrice}</td>
-				</tr>
-			</c:forEach>
-			</table>
-         <!-- 商品列表 end -->
-         <div style="border-bottom: 1px solid #e6e6e6;height: 0;margin-bottom: 10px;"></div>
-         <!-- 结算金额begin -->
-         <div style="color: #333;height: 40px;line-height: 40px;">
-                                   应付总金额：${SHOPPING_CART.totalPrice}
-    		<input type="submit" style="background-color: #e00; color: #fff;float: right;font-size: 16px;height: 36px;font-weight: bolder;cursor: pointer;" value="提交订单"/>
+                                   支付金额：${SHOPPING_CART.totalPrice}
+    		<input type="submit" style="background-color: #e00; color: #fff;float: right;font-size: 16px;height: 36px;font-weight: bolder;cursor: pointer;" value="立即支付"/>
          </div>
-     </div>
+      </div>
      <!-- 结算页面 end -->
      </form>
     </div>

@@ -21,6 +21,7 @@ import com.shop.bean.Customer;
 import com.shop.bean.Products;
 import com.shop.constant.Constants;
 import com.shop.service.ShoppingService;
+import com.shop.utils.MD5Util;
 
 @Controller
 public class ShoppingController {
@@ -157,8 +158,28 @@ public class ShoppingController {
 	}
 	//填写联系人
 	@RequestMapping(value = "gotoPayPre.do", method = { RequestMethod.GET,RequestMethod.POST })
-	public String gotoPayPre(HttpSession session){
-		
-		return null;
+	public String gotoPayPre(HttpSession session,Model model){
+		Cart cart = (Cart) session.getAttribute(Constants.SHOPPING_CART);
+		String MerNo = "168885";
+		String Amount = cart.getTotalPrice().toString();
+		String BillNo = "JYXH_" + String.valueOf(System.currentTimeMillis());
+		String MD5key = "12345678";
+		String ReturnURL = "http://www.jinyixinghua.com/payResult.do";
+		String NotifyURL="http://www.jinyixinghua.com/notifyResult.do";
+		String PaymentType="";
+		String PayType="CSPAY";
+		model.addAttribute("MerNo", MerNo);
+		model.addAttribute("Amount", Amount);
+		model.addAttribute("BillNo", BillNo);
+		model.addAttribute("MD5key", MD5key);
+		model.addAttribute("ReturnURL", ReturnURL);
+		model.addAttribute("NotifyURL",NotifyURL);
+		// TODO 需要给出页面进行选择
+		model.addAttribute("PaymentType",PaymentType);
+		model.addAttribute("PayType", PayType);
+		model.addAttribute("MerRemark", "");
+		model.addAttribute("Products", "");
+		model.addAttribute("MD5info", MD5Util.signMap(new String[] { MerNo,BillNo, Amount, ReturnURL }, MD5key, "REQ"));
+		return "gotoPayPre";
 	}
 }
