@@ -1,12 +1,16 @@
 package com.shop.web.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +32,10 @@ public class ShoppingController {
 	
 	@Autowired
 	private ShoppingService shoppingService;
+	
+	private Logger logger = LoggerFactory.getLogger(getClass());
+	
+	private String MD5key="12345678";
 	
 	//加入到购物车
 	@RequestMapping(value = "addCart.do", method = { RequestMethod.GET,RequestMethod.POST })
@@ -156,14 +164,13 @@ public class ShoppingController {
 		}
 		return "fill_contact";
 	}
-	//填写联系人
+	//去支付
 	@RequestMapping(value = "gotoPayPre.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String gotoPayPre(HttpSession session,Model model){
 		Cart cart = (Cart) session.getAttribute(Constants.SHOPPING_CART);
 		String MerNo = "168885";
 		String Amount = cart.getTotalPrice().toString();
 		String BillNo = "JYXH_" + String.valueOf(System.currentTimeMillis());
-		String MD5key = "12345678";
 		String ReturnURL = "http://www.jinyixinghua.com/payResult.do";
 		String NotifyURL="http://www.jinyixinghua.com/notifyResult.do";
 		String PaymentType="";
@@ -181,5 +188,43 @@ public class ShoppingController {
 		model.addAttribute("Products", "");
 		model.addAttribute("MD5info", MD5Util.signMap(new String[] { MerNo,BillNo, Amount, ReturnURL }, MD5key, "REQ"));
 		return "gotoPayPre";
+	}
+
+	@RequestMapping(value = "/notifyResult.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String notifyResult(HttpSession session, HttpServletRequest request)
+			throws UnsupportedEncodingException {
+		String CharacterEncoding = "UTF-8";
+		request.setCharacterEncoding(CharacterEncoding);
+		String MerNo = request.getParameter("MerNo");
+		String BillNo = request.getParameter("BillNo");
+		String Amount = request.getParameter("Amount");
+		String Succeed = request.getParameter("Succeed");
+		String Result = request.getParameter("Result");
+		String MD5info = request.getParameter("MD5info");
+		String MerRemark = request.getParameter("MerRemark");
+		String md5str  = MD5Util.signMap(new String[] { MerNo, BillNo, Amount,String.valueOf(Succeed) }, MD5key, "RES");
+		//if (MD5info.equals(md5str)) {
+			logger.info("--收到95epay返回码:[{}]--",new Object[]{Result});
+		//}
+		return null;
+	}
+	
+	@RequestMapping(value = "/payResult.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String payResult(HttpSession session, HttpServletRequest request,Model model)throws UnsupportedEncodingException {
+		String CharacterEncoding = "UTF-8";
+	    request.setCharacterEncoding(CharacterEncoding);
+		String MerNo = request.getParameter("MerNo"); 
+	    String BillNo = request.getParameter("BillNo");	
+	    String Amount = request.getParameter("Amount");	
+	    String Succeed = request.getParameter("Succeed");
+	    String Result  = request.getParameter("Result"); 
+	    String MD5info = request.getParameter("MD5info");
+	    String MerRemark  = request.getParameter("MerRemark"); 
+	   	String md5str = MD5Util.signMap(new String[]{MerNo,BillNo,Amount,String.valueOf(Succeed)}, MD5key, "RES");
+		//if(MD5info.equals(md5str)){
+			logger.info("--收到95epay返回码:[{}]--",new Object[]{Result});
+		//}
+		model.addAttribute("resultCode", Result);
+		return "payResult";
 	}
 }
