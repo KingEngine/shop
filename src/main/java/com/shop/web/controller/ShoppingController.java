@@ -35,7 +35,7 @@ public class ShoppingController {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
-	private String MD5key="12345678";
+	private String MD5key="CxWBRp_~";
 	
 	//加入到购物车
 	@RequestMapping(value = "addCart.do", method = { RequestMethod.GET,RequestMethod.POST })
@@ -168,7 +168,7 @@ public class ShoppingController {
 	@RequestMapping(value = "gotoPayPre.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String gotoPayPre(HttpSession session,Model model){
 		Cart cart = (Cart) session.getAttribute(Constants.SHOPPING_CART);
-		String MerNo = "168885";
+		String MerNo = "183545";
 		String Amount = cart.getTotalPrice().toString();
 		String BillNo = "JYXH_" + String.valueOf(System.currentTimeMillis());
 		String ReturnURL = "http://www.jinyixinghua.com/payResult.do";
@@ -222,7 +222,7 @@ public class ShoppingController {
 	    String MerRemark  = request.getParameter("MerRemark"); 
 	   	String md5str = MD5Util.signMap(new String[]{MerNo,BillNo,Amount,String.valueOf(Succeed)}, MD5key, "RES");
 		//if(MD5info.equals(md5str)){
-			logger.info("--收到95epay返回码:[{}]--",new Object[]{Result});
+			logger.info("--收到95epay返回码:[{}-{}]--",new Object[]{Succeed,Result});
 		//}
 		model.addAttribute("resultCode", Result);
 		return "payResult";
