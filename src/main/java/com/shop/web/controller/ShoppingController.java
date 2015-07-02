@@ -140,7 +140,8 @@ public class ShoppingController {
 	
 	//清空购物车
 	@RequestMapping(value = "clearCart.do", method = { RequestMethod.GET,RequestMethod.POST })
-	public String clearCart(){
+	public String clearCart(HttpSession session){
+		session.removeAttribute(Constants.SHOPPING_CART);
 		return "cart";
 	}
 	//通过商品大类查看商品列表
@@ -170,6 +171,7 @@ public class ShoppingController {
 	@RequestMapping(value = "gotoPayPre.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String gotoPayPre(HttpSession session,Model model){
 		Cart cart = (Cart) session.getAttribute(Constants.SHOPPING_CART);
+		Customer customer = (Customer) session.getAttribute(Constants.CUSTOMER);
 		String MerNo = "183545";
 		String Amount = cart.getTotalPrice().toString();
 		String BillNo = "JYXH_" + String.valueOf(System.currentTimeMillis());
@@ -183,10 +185,9 @@ public class ShoppingController {
 		model.addAttribute("MD5key", MD5key);
 		model.addAttribute("ReturnURL", ReturnURL);
 		model.addAttribute("NotifyURL",NotifyURL);
-		// TODO 需要给出页面进行选择
 		model.addAttribute("PaymentType",PaymentType);
 		model.addAttribute("PayType", PayType);
-		model.addAttribute("MerRemark", "");
+		model.addAttribute("MerRemark", customer.getCustomerNickname());
 		model.addAttribute("Products", "");
 		model.addAttribute("MD5info", MD5Util.signMap(new String[] { MerNo,BillNo, Amount, ReturnURL }, MD5key, "REQ"));
 		return "gotoPayPre";

@@ -169,7 +169,7 @@
 					<td height="46" align="center" colspan="6">
 					<input
 						type="button"
-						onclick="if(!confirm('确认清空购物车吗?')) return false;location.href='orderpro_del.asp?kind=qingkong';"
+						onclick="if(!confirm('确认清空购物车吗?')) return false;location.href='clearCart.do';"
 						style="BACKGROUND: url(images/gwc_28.gif) no-repeat; border: 0; width: 101px; height: 29px; CURSOR: pointer;"
 						value=" " name="delall"> &nbsp;&nbsp;&nbsp; 
 					<input
