@@ -143,15 +143,17 @@ public class ShoppingController {
 	public String clearCart(){
 		return "cart";
 	}
-	
-	
-	
-	
-	
-	//查看商品列表
+	//通过商品大类查看商品列表
 	@RequestMapping(value = "getProductList.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String getProductList(@RequestParam(value="productCategoryId",required=false)String productCategoryId,Model model) {
 		List<Products> products = shoppingService.getProductList(productCategoryId);
+		model.addAttribute("products", products);
+		return "product_list";
+	}
+	//通过商品小类查看商品列表
+	@RequestMapping(value = "getProductListBySecondCatetory.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String getProductListBySecondCatetory(@RequestParam(value="productCategoryId",required=false)String productCategoryId,Model model) {
+		List<Products> products = shoppingService.getProductListBySecondCatetory(productCategoryId);
 		model.addAttribute("products", products);
 		return "product_list";
 	}

@@ -47,7 +47,7 @@
       		 <dd class="w l f12">
           	 <ul class="lili lile">
       		 <c:forEach items="${item.secondMenus}" var="second">
-      		 	<li><a href="">${second.categoryName}</a></li>
+      		 	<li><a href="<%=request.getContextPath()%>/getProductListBySecondCatetory.do?productCategoryId=${second.categoryId}" target="_self">${second.categoryName}</a></li>
       		 </c:forEach>
       		 </ul>
       	</c:forEach>

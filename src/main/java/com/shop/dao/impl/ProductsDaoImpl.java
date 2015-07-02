@@ -35,6 +35,10 @@ public class ProductsDaoImpl extends PageDao implements IProductsDao {
 	public List<Products> selectList(Products param) {
 		return getSqlSession().selectList("ProductsManager.select", param);
 	}
+	
+	public List<Products> selectListBySecondCatetory(Products param) {
+		return getSqlSession().selectList("ProductsManager.selectBySecondCategory", param);
+	}
 
 	/**
 	 * 分页查询

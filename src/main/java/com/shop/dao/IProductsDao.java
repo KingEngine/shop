@@ -16,6 +16,8 @@ public interface IProductsDao {
 
 	public List<Products> selectList(Products param);
 	
+	public List<Products> selectListBySecondCatetory(Products param);
+	
 	public List<Products> selectHotList();
 
 	public Page<Products> selectPage(Page<Products> page, Products param);

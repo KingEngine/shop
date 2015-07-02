@@ -26,4 +26,10 @@ public class ShoppingService {
 		queryParam.setProductCategory(productCategory);
 		return productsDao.selectList(queryParam);
 	}
+	
+	public List<Products> getProductListBySecondCatetory(String productCategory){
+		Products queryParam = new Products();
+		queryParam.setProductCategory(productCategory);
+		return productsDao.selectListBySecondCatetory(queryParam);
+	}
 }
