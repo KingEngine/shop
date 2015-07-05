@@ -23,6 +23,7 @@ import com.shop.bean.Cart;
 import com.shop.bean.CartProducts;
 import com.shop.bean.Customer;
 import com.shop.bean.Products;
+import com.shop.bean.Trade;
 import com.shop.constant.Constants;
 import com.shop.service.ShoppingService;
 import com.shop.utils.MD5Util;
@@ -224,7 +225,17 @@ public class ShoppingController {
 	   	String md5str = MD5Util.signMap(new String[]{MerNo,BillNo,Amount,String.valueOf(Succeed)}, MD5key, "RES");
 		logger.info("--收到95epay返回码:[{}-{}]--",new Object[]{Succeed,Result});
 	    //TODO 把返回数据插入到订单表中
-			
+		Trade trade = new Trade();
+		trade.setMerNo(MerNo);
+		trade.setBillNo(BillNo);
+		trade.setAmount(Amount);
+		trade.setSucceed(Succeed);
+		trade.setResult(Result);
+		trade.setMerRemark(MerRemark);
+		boolean result = shoppingService.insertTrade(trade);
+		if(result){
+			logger.info("交易记录:{}插入数据库成功",new Object[]{BillNo});
+		}
 		model.addAttribute("resultCode", Result);
 		return "payResult";
 	}

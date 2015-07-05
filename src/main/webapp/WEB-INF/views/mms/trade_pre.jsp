@@ -13,7 +13,7 @@
  <script type="text/javascript">
 	// 查询操作员列表
 	function query() {
-		ajaxFormSearch("searchForm","getCustomerForPage.do","list",1);
+		ajaxFormSearch("searchForm","getTradeForPage.do","list",1);
 	}
  </script>
 <body>

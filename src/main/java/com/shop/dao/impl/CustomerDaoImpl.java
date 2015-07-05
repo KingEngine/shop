@@ -1,8 +1,11 @@
 package com.shop.dao.impl;
 
 import java.util.List;
+
 import org.springframework.stereotype.Component;
+
 import com.shop.bean.Customer;
+import com.shop.bean.Page;
 import com.shop.dao.ICustomerDao;
 
 /**
@@ -71,6 +74,10 @@ public class CustomerDaoImpl extends BaseDao implements ICustomerDao{
 			return true;
 		return false;
 	 }
+	 
+	public Page<Customer> selectForPage(Page<Customer> page, Customer customer) {
+		return selectPage(page, "CustomerManager.queryPage", "CustomerManager.queryPageCount", customer);
+	}
 }
 
 

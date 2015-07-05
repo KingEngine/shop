@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <!--表 customer操作方法-->
+<mapper namespace="TradeManager">
+	<resultMap type="Trade" id="TradeMap">
+		 	<id property="id" column="id" />
+		 	<result property="MerNo" column="MerNo" />
+		 	<result property="BillNo" column="BillNo" />
+		 	<result property="Amount" column="Amount" />
+		 	<result property="Result" column="Result" />
+		 	<result property="Succeed" column="Succeed" />
+		 	<result property="MerRemark" column="MerRemark" />
+		 	<result property="customerPwdAnswer" column="customer_pwd_answer" />
+		 	<result property="customerStatus" column="customer_status" />
+	</resultMap>
+	<!--分页查询 记录-->
+	<select id="queryPage" parameterType="Customer" resultMap="CustomerMap">
+		select * from trade t
+		where 1=1 
+        limit #{startRow},#{limit}
+	</select>
+	<!--分页查询  计数-->
+	<select id="queryPageCount" parameterType="Customer" resultType="int">
+		select count(*) from customer t
+		where 1=1 
+	</select>
+	<!--添加方法-->
+	<insert id="insert" parameterType="Customer">
+		insert into trade(
+				MerNo,
+				BillNo,
+				Amount,
+				Result,
+				Succeed,
+				MerRemark
+		) values(
+				#{MerNo},
+				#{BillNo},
+				#{Amount},
+				#{Result},
+				#{Succeed},
+				#{MerRemark}
+			)
+	</insert>
+</mapper>
+
+
+
