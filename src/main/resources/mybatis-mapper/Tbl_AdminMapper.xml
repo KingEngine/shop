@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <!--表 products操作方法-->
+<mapper namespace="AdminManager">
+	<resultMap type="Admin" id="AdminMap">
+		 	<id property="id" column="id" />
+		 	<result property="adminName" column="admin_name" />
+		 	<result property="adminPwd" column="admin_pwd" />
+	</resultMap>
+	<!--查询方法-->
+	<select id="select" parameterType="Admin" resultMap="AdminMap">
+    	select * from admin
+		where admin_name =#{adminName} and admin_pwd=#{adminPwd}
+	</select>
+</mapper>
+
+
+

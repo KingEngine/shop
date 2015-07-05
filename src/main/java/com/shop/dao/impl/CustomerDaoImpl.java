@@ -1,10 +1,7 @@
 package com.shop.dao.impl;
 
 import java.util.List;
-
-import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Component;
-
 import com.shop.bean.Customer;
 import com.shop.dao.ICustomerDao;
 
@@ -14,7 +11,7 @@ import com.shop.dao.ICustomerDao;
  * @author king
  */
 @Component
-public class CustomerDaoImpl extends SqlSessionDaoSupport implements ICustomerDao{
+public class CustomerDaoImpl extends BaseDao implements ICustomerDao{
 	 /**
 	  * 查询对象
 	  * @param 

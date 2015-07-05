@@ -7,11 +7,13 @@
 		<typeAlias alias="ProductCategory" type="com.shop.bean.ProductCategory" />
 		<typeAlias alias="Products" type="com.shop.bean.Products"/>
 		<typeAlias alias="CustomerAddress" type="com.shop.bean.CustomerAddress"/>
+		<typeAlias alias="Admin" type="com.shop.bean.Admin"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis-mapper/Tbl_CustomerMapper.xml"/>
 		<mapper resource="mybatis-mapper/Tbl_ProductCategoryMapper.xml"/>
 		<mapper resource="mybatis-mapper/Tbl_ProductsMapper.xml"/>
 		<mapper resource="mybatis-mapper/Tbl_CustomerAddressMapper.xml"/>
+		<mapper resource="mybatis-mapper/Tbl_AdminMapper.xml"/>
 	</mappers>
 </configuration>

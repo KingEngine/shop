@@ -1,0 +1,142 @@
+.icon-blank{
+	background:url('icons/blank.gif') no-repeat center center;
+}
+.icon-add{
+	background:url('icons/edit_add.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('icons/pencil.png') no-repeat center center;
+}
+.icon-remove{
+	background:url('icons/edit_remove.png') no-repeat center center;
+}
+.icon-save{
+	background:url('icons/filesave.png') no-repeat center center;
+}
+.icon-cut{
+	background:url('icons/cut.png') no-repeat center center;
+}
+.icon-ok{
+	background:url('icons/ok.png') no-repeat center center;
+}
+.icon-no{
+	background:url('icons/no.png') no-repeat center center;
+}
+.icon-cancel{
+	background:url('icons/cancel.png') no-repeat center center;
+}
+.icon-reload{
+	background:url('icons/reload.png') no-repeat center center;
+}
+.icon-search{
+	background:url('icons/search.png') no-repeat center center;
+}
+.icon-print{
+	background:url('icons/print.png') no-repeat center center;
+}
+.icon-help{
+	background:url('icons/help.png') no-repeat center center;
+}
+.icon-undo{
+	background:url('icons/undo.png') no-repeat center center;
+}
+.icon-redo{
+	background:url('icons/redo.png') no-repeat center center;
+}
+.icon-back{
+	background:url('icons/back.png') no-repeat center center;
+}
+.icon-sum{
+	background:url('icons/sum.png') no-repeat center center;
+}
+.icon-tip{
+	background:url('icons/tip.png') no-repeat center center;
+}
+
+.icon-mini-add{
+	background:url('icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit{
+	background:url('icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh{
+	background:url('icons/mini_refresh.png') no-repeat center center;
+}
+.icon-my{
+	background:url('icons/mini_refresh.png') no-repeat center center;
+}
+.icon-people{
+	background:url('icons/people.png') no-repeat center center;
+}
+/*监控参数配置*/
+.icon-parameter_onfiguration{
+	background:url('icons/childrennode.gif') no-repeat center center;
+}
+/*监控规则配置*/
+.icon-rules_onfiguration{
+	background:url('icons/rules_onfiguration.gif') no-repeat center center;
+}
+/*失败应答配置*/
+.icon-failure_onfiguration{
+	background:url('icons/failure_onfiguration.gif') no-repeat center center;
+}
+/*报警配置*/
+.icon-alarm_configuration{
+	background:url('icons/alarm_configuration.gif') no-repeat center center;
+}
+/*交易监控图标*/
+.icon-monitor_window{
+	background:url('icons/monitor_window.gif') no-repeat center center;
+}
+/*所有交易窗口*/
+.icon-all_window{
+	background:url('icons/all_window.gif') no-repeat center center;
+}
+/*渠道交易窗口*/
+.icon-channel_window{
+	background:url('icons/channel_window.gif') no-repeat center center;
+}
+
+/*报警事件跟进*/
+.icon-alarm_follow{
+	background:url('icons/alarm_follow.gif') no-repeat center center;
+}
+/*报警事件跟进*/
+.icon-alarm_follow_children{
+	background:url('icons/alarm_follow_children.gif') no-repeat center center;
+}
+/*指定交易查询*/
+.icon-trade_query{
+	background:url('icons/trade_query.gif') no-repeat center center;
+}
+/*报警事件跟进*/
+.icon-trade_query_children{
+	background:url('icons/trade_query_children.gif') no-repeat center center;
+}
+
+/*操作员管理*/
+.icon-operate_manager{
+	background:url('icons/operate_manager.gif') no-repeat center center;
+}
+
+/*操作员查询*/
+.icon-operate_manager_query{
+	background:url('icons/operate_manager_query.gif') no-repeat center center;
+}
+/*操作员新增*/
+.icon-operate_manager_add{
+	background:url('icons/operate_manager_add.gif') no-repeat center center;
+}
+/*操作员修改*/
+.icon-operate_manager_edite{
+	background:url('icons/operate_manager_edite.gif') no-repeat center center;
+}
+
+/*操作员权限配置*/
+.icon-operate_manager_permissions{
+	background:url('icons/operate_manager_permissions.gif') no-repeat center center;
+}
+
+
+
+

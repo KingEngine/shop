@@ -14,7 +14,7 @@ import com.shop.dao.IProductsDao;
  * @author king
  */
 @Component
-public class ProductsDaoImpl extends PageDao implements IProductsDao {
+public class ProductsDaoImpl extends BaseDao implements IProductsDao {
 	
 	/**
 	 * 查询列表

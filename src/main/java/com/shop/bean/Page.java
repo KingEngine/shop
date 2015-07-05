@@ -5,9 +5,18 @@ import java.util.List;
 import java.util.Map;
 import org.apache.commons.collections.IteratorUtils;
 import org.apache.commons.lang.StringUtils;
+
 import com.google.common.collect.Lists;
 
-
+/**
+ * 与具体ORM实现无关的分页参数及查询结果封装.
+ * 本类只封装输入输出参数, 具体的分页逻辑全部封装在Paginator类.
+ * 
+ * @param <T> Page中记录的类型.
+ * 
+ * @author calvin
+ * @author badqiu
+ */
 public class Page<T> implements Iterable<T> {
     //-- 公共变量 --//
     public static final String ASC        = "asc";
@@ -22,8 +31,8 @@ public class Page<T> implements Iterable<T> {
     public String              order      = null;
 
     //-- 返回结果 --//
-    public List<T>             result     = Lists.newArrayList();
-    public Integer             totalItems = -1;
+    public List<T>             rows     = Lists.newArrayList();
+    public Integer             total = -1;
 
     @SuppressWarnings("rawtypes")
     public Map                 returnMap;
@@ -148,44 +157,35 @@ public class Page<T> implements Iterable<T> {
 
     //-- 访问查询结果函数 --//
 
-    /**
-     * 获得页内的记录列表.
-     */
-    public List<T> getResult() {
-        return result;
-    }
-
-    /**
-     * 设置页内的记录列表.
-     */
-    public void setResult(final List<T> result) {
-        this.result = result;
-    }
+    
 
     /** 
      * 实现Iterable接口,可以for(Object item : page)遍历使用
      */
     @SuppressWarnings("unchecked")
     public Iterator<T> iterator() {
-        return result == null ? IteratorUtils.EMPTY_ITERATOR : result.iterator();
+        return rows == null ? IteratorUtils.EMPTY_ITERATOR : rows.iterator();
     }
 
-    /**
-     * 获得总记录数, 默认值为-1.
-     */
-    public long getTotalItems() {
-        return totalItems;
-    }
+   
 
-    /**
-     * 设置总记录数.
-     */
-    public void setTotalItems(final Integer totalItems) {
-        this.totalItems = totalItems;
-        getTotalPages();
-    }
+    public List<T> getRows() {
+		return rows;
+	}
 
-    /**
+	public void setRows(List<T> rows) {
+		this.rows = rows;
+	}
+
+	public Integer getTotal() {
+		return total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
+	}
+
+	/**
      * 是否最后一页.
      */
     public boolean isLastPage() {
@@ -241,10 +241,10 @@ public class Page<T> implements Iterable<T> {
      * 根据pageSize与totalItems计算总页数, 默认值为-1.
      */
     public Integer getTotalPages() {
-        if (totalItems % pageSize == 0) {
-            totalPage = totalItems / pageSize == 0 ? 1 : totalItems / pageSize;
+        if (total % pageSize == 0) {
+            totalPage = total / pageSize == 0 ? 1 : total / pageSize;
         } else {
-            totalPage = totalItems / pageSize + 1;
+            totalPage = total / pageSize + 1;
         }
         return totalPage;
     }
@@ -275,7 +275,7 @@ public class Page<T> implements Iterable<T> {
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void main(String[] args) {
         Page page = new Page(2, 10);
-        page.setTotalItems(22);
+        page.setTotal(22);
         List<Long> silders = page.getSlider(10);
         for (Long pageNo : silders) {
             System.out.print(pageNo + " ");

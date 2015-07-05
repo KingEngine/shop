@@ -206,9 +206,7 @@ public class ShoppingController {
 		String MD5info = request.getParameter("MD5info");
 		String MerRemark = request.getParameter("MerRemark");
 		String md5str  = MD5Util.signMap(new String[] { MerNo, BillNo, Amount,String.valueOf(Succeed) }, MD5key, "RES");
-		//if (MD5info.equals(md5str)) {
-			logger.info("--收到95epay返回码:[{}]--",new Object[]{Result});
-		//}
+		logger.info("--收到95epay返回码:[{}]--",new Object[]{Result});
 		return null;
 	}
 	
@@ -224,9 +222,9 @@ public class ShoppingController {
 	    String MD5info = request.getParameter("MD5info");
 	    String MerRemark  = request.getParameter("MerRemark"); 
 	   	String md5str = MD5Util.signMap(new String[]{MerNo,BillNo,Amount,String.valueOf(Succeed)}, MD5key, "RES");
-		//if(MD5info.equals(md5str)){
-			logger.info("--收到95epay返回码:[{}-{}]--",new Object[]{Succeed,Result});
-		//}
+		logger.info("--收到95epay返回码:[{}-{}]--",new Object[]{Succeed,Result});
+	    //TODO 把返回数据插入到订单表中
+			
 		model.addAttribute("resultCode", Result);
 		return "payResult";
 	}
