@@ -5,59 +5,68 @@ import java.io.Serializable;
 public class Trade implements Serializable {
 
 	private static final long serialVersionUID = -4715753547240821546L;
-	private String MerNo;
-	private String BillNo;
-	private String Amount;
-	private String Result;
-	private String Succeed;
-	private String MerRemark;
+	private int id;
+	private String merNo;
+	private String billNo;
+	private String amount;
+	private String result;
+	private String succeed;
+	private String merRemark;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getMerNo() {
-		return MerNo;
+		return merNo;
 	}
 
 	public void setMerNo(String merNo) {
-		MerNo = merNo;
+		this.merNo = merNo;
 	}
 
 	public String getBillNo() {
-		return BillNo;
+		return billNo;
 	}
 
 	public void setBillNo(String billNo) {
-		BillNo = billNo;
+		this.billNo = billNo;
 	}
 
 	public String getAmount() {
-		return Amount;
+		return amount;
 	}
 
 	public void setAmount(String amount) {
-		Amount = amount;
+		this.amount = amount;
 	}
 
 	public String getResult() {
-		return Result;
+		return result;
 	}
 
 	public void setResult(String result) {
-		Result = result;
+		this.result = result;
 	}
 
 	public String getSucceed() {
-		return Succeed;
+		return succeed;
 	}
 
 	public void setSucceed(String succeed) {
-		Succeed = succeed;
+		this.succeed = succeed;
 	}
 
 	public String getMerRemark() {
-		return MerRemark;
+		return merRemark;
 	}
 
 	public void setMerRemark(String merRemark) {
-		MerRemark = merRemark;
+		this.merRemark = merRemark;
 	}
 
 }

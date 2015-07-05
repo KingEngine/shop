@@ -60,6 +60,7 @@ public class MMSController {
 		Admin result = mmsService.getAdmin(admin.getAdminName(),
 				admin.getAdminPwd());
 		if (null != result) {
+			session.setAttribute(Constants.ADMIN, result);
 			return prefix + "main";
 		}
 		model.addAttribute("errMsg", "用户名或者密码错误");
@@ -156,6 +157,7 @@ public class MMSController {
 		try {
 			trades = mmsService.getTradeForPage(page, trade);
 		} catch (Exception e) {
+			 e.printStackTrace();
 		}
 		return trades;
 	}

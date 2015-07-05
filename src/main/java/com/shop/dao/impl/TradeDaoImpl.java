@@ -1,14 +1,16 @@
 package com.shop.dao.impl;
 
+import org.springframework.stereotype.Component;
+
 import com.shop.bean.Page;
 import com.shop.bean.Trade;
 import com.shop.dao.ITradeDao;
 
+@Component
 public class TradeDaoImpl extends BaseDao implements ITradeDao {
 
 	public Page<Trade> selectForPage(Page<Trade> page, Trade trade) {
-		return selectPage(page, "TradeManager.queryPage",
-				"TradeManager.queryPageCount", trade);
+		return selectPage(page, "TradeManager.queryPage","TradeManager.queryPageCount", trade);
 	}
 
 	public boolean insert(Trade trade) {

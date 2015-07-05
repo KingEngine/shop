@@ -5,28 +5,26 @@
 <mapper namespace="TradeManager">
 	<resultMap type="Trade" id="TradeMap">
 		 	<id property="id" column="id" />
-		 	<result property="MerNo" column="MerNo" />
-		 	<result property="BillNo" column="BillNo" />
-		 	<result property="Amount" column="Amount" />
-		 	<result property="Result" column="Result" />
-		 	<result property="Succeed" column="Succeed" />
-		 	<result property="MerRemark" column="MerRemark" />
-		 	<result property="customerPwdAnswer" column="customer_pwd_answer" />
-		 	<result property="customerStatus" column="customer_status" />
+		 	<result property="merNo" column="MerNo" />
+		 	<result property="billNo" column="BillNo" />
+		 	<result property="amount" column="Amount" />
+		 	<result property="result" column="Result" />
+		 	<result property="succeed" column="Succeed" />
+		 	<result property="merRemark" column="MerRemark" />
 	</resultMap>
 	<!--分页查询 记录-->
-	<select id="queryPage" parameterType="Customer" resultMap="CustomerMap">
+	<select id="queryPage" parameterType="Trade" resultMap="TradeMap">
 		select * from trade t
 		where 1=1 
         limit #{startRow},#{limit}
 	</select>
 	<!--分页查询  计数-->
-	<select id="queryPageCount" parameterType="Customer" resultType="int">
-		select count(*) from customer t
+	<select id="queryPageCount" parameterType="Trade" resultType="int">
+		select count(*) from trade t
 		where 1=1 
 	</select>
 	<!--添加方法-->
-	<insert id="insert" parameterType="Customer">
+	<insert id="insert" parameterType="Trade">
 		insert into trade(
 				MerNo,
 				BillNo,

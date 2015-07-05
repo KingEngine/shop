@@ -15,7 +15,7 @@
 <body background="<%=request.getContextPath()%>/images/welcome-bg.jpg">
      <div style="margin-top: 30px;">
            <img src="<%=request.getContextPath()%>/images/hi.png" />
-           <h1 style="margin-left: 100px;"><font class="welcomeClassInfo">尊敬的 <span style="color: red">${_login.userName}</span>，欢迎您登录电银信息监控管理后台 ！</font></h1>
+           <h1 style="margin-left: 100px;"><font class="welcomeClassInfo"></font></h1>
      </div>
 </body>
 </html>

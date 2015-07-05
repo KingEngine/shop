@@ -14,7 +14,7 @@
 	       <li><span>交易管理</span>
 	           <ul>
                     <li><span><a href="<%=request.getContextPath()%>/getCustomerPre.do" target="rightFrame">注册用户查询</a></span></li>
-                    <li><span><a href="<%=request.getContextPath()%>/getCustomerPre.do" target="rightFrame">交易查询</a></span></li>
+                    <li><span><a href="<%=request.getContextPath()%>/getTradePre.do" target="rightFrame">交易查询</a></span></li>
 	           </ul>
 	       </li>
 		</ul>

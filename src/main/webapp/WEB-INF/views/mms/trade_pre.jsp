@@ -32,7 +32,9 @@
 		    width="100%" border="0" cellspacing="0" >
 		<thead>
 			<tr>
-			    <th data-options="field:'customerNickname',align:'center'">报警类型</th>
+			    <th data-options="field:'billNo',align:'center'">订单号</th>
+			    <th data-options="field:'amount',align:'center'">金额 </th>
+			    <th data-options="field:'merRemark',align:'center'">用户 </th>
 			</tr>
 		</thead>
 	 </table>
